@@ -17,14 +17,14 @@ var app = express();
 app.engine('ejs', require('express-ejs-extend'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// serve assets and images 
 app.use('/assets', serveIndex('assets')); // shows you the assets folder file list ...when you get /assets
 app.use('/assets', express.static('assets')); // serve the files inside assets ...when you get /assets
 app.use('/images', serveIndex('images')); // shows you the images folder file list ...when you get /images
