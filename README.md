@@ -17,7 +17,7 @@ NodeJS > 8 <https://nodejs.org/en/download/>
 ### Port
 Change port the app runs on by starting the app with ```node ./bin/www 300``` 
 To set the port for production set the process.env before you run the app, or just edit the following Start script in package.json 
-
+```
 {
   "name": "electronero",
   "version": "0.0.1",
@@ -35,3 +35,4 @@ To set the port for production set the process.env before you run the app, or ju
   "scripts": {
     "start": "node ./bin/www 3001"
   },
+```
