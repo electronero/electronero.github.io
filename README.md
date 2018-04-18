@@ -16,7 +16,7 @@ NodeJS > 8 <https://nodejs.org/en/download/>
 ### Server
 
 #### NGINX
-Example NGINX server 
+Example NGINX server for HTTP, ssl is not very different.
 ```
 server {
     root /usr/share/nginx/electronero.org;
@@ -107,6 +107,53 @@ http {
     }
   }
 }
+```
+
+Or to use Apache first we must enable some mods: 
+```a2enmod proxy proxy_ajp proxy_http rewrite deflate headers proxy_balancer proxy_connect proxy_html```
+
+Example Apache server for HTTP. 
+```
+<VirtualHost *:80>
+	ServerName electronero.org
+	ServerAlias electronero.com electronero.net electronero.info
+   
+    # Servers to proxy the connection, or;
+    # List of application servers:
+    # Usage: 
+    # ProxyPreserveHost On
+    # ProxyPass / http://[IP Addr.]:[port]/
+    # ProxyPassReverse / http://[IP Addr.]:[port]/
+    
+	ProxyPreserveHost On
+	ProxyPass / http://0.0.0.0:3000/ keepalive=on
+	ProxyPassReverse / http://0.0.0.0:3000/
+</VirtualHost>
+```
+SSL is not much different.
+```
+<VirtualHost *:443>
+
+    SSLEngine On
+
+    # Set the path to SSL certificate
+    # Usage: SSLCertificateFile /path/to/cert.pem
+    SSLCertificateFile /etc/apache2/ssl/file.pem
+
+
+    # Servers to proxy the connection, or;
+    # List of application servers:
+    # Usage:
+    # ProxyPreserveHost On
+    # ProxyPass / http://[IP Addr.]:[port]/
+    # ProxyPassReverse / http://[IP Addr.]:[port]/
+
+    ProxyPreserveHost On
+    ProxyPass / http://0.0.0.0:3000/
+    ProxyPassReverse / http://0.0.0.0:3000/
+
+
+</VirtualHost>
 ```
 
 ### Port
