@@ -9,6 +9,6 @@ npm start
 ```
 ### Prerequisites
 ```
-NodeJs > 8 (https://nodejs.org/en/download/)
+NodeJs > 8 <https://nodejs.org/en/download/>
 NPM
 ```
