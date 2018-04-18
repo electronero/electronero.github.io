@@ -132,8 +132,8 @@ http {
   }
 }
 ```
-
-Or to use Apache first we must enable some mods: 
+#### Apache
+To use Apache first we must enable some mods: 
 ```a2enmod proxy proxy_ajp proxy_http rewrite deflate headers proxy_balancer proxy_connect proxy_html```
 
 Example Apache server for HTTP. 
