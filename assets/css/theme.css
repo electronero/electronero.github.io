@@ -160,6 +160,8 @@ a:hover, a:focus, a:active { color: #8255fd; }
 .bg-team-exp.mfp-bg { background-image: linear-gradient(to right, #46bdf4 0%, #7a0fff 100%); }
 
 .contact-info li .fa { background-image: linear-gradient(to right, #2b56f5 0%, #46bdf4 100%); }
+.contact-info li .fab { background-image: linear-gradient(to right, #2b56f5 0%, #46bdf4 100%); }
+
 .contact-info-alt li .fa { background-image: linear-gradient(to right, #2b56f5 0%, #46bdf4 100%); }
 
 .form-message .input-field .input-line { border-bottom-color: #46bdf4; }
