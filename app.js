@@ -8,7 +8,7 @@ var serveIndex = require('serve-index');
 var path = require('path');
 
 var index = require('./routes/index');
-var about = require('./routes/about');
+var blog = require('./routes/blog'); // require blog route callback functions
 var contact = require('./routes/contact');
 
 var app = express();
@@ -30,8 +30,8 @@ app.use('/assets', express.static('assets')); // serve the files inside assets .
 app.use('/images', serveIndex('images')); // shows you the images folder file list ...when you get /images
 app.use('/images', express.static('images')); // serve the files inside images ...when you get /images
 
-app.use('/', index);
-app.use('/about', about);
+app.use('/', index); 
+app.use('/blog', blog); // add blog route
 app.use('/', contact);
 
 // catch 404 and forward to error handler
