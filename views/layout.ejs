@@ -71,7 +71,7 @@
                                 <h1>Introducing ETNX.</h1>
 				<p><i>A decentralized hard fork of ETN.</i> As seen on <a href="https://themerkle.com/electroneum-hard-fork-electronero-combines-features-from-different-cryptonote-currencies/"><img width="30px" height="30px" src="/images/the-merkle.png" /></a> & <a href="http://www.bitcoininsider.org/article/24743/electroneum-hard-fork-electronero-combines-features-different-cryptonote-currencies"><img width="30px" height="30px" src="/images/bitcoin-insider.png" /></a>
 				</p>
-                                <p class="lead color-secondary">Electroneum fork. Public release 05/11/2018</p>
+                                <p class="lead color-secondary">Electroneum fork. Public Testnet release 05/11/2018</p>
                                 <ul class="btns">
                                     <li><a href="https://twitter.com/_electronero" class="btn">Twitter</a></li>
                                     <li><a href="https://t.me/electronero" class="btn btn-alt">Telegram</a></li>
@@ -132,7 +132,7 @@
                 <div class="col-lg-8 offset-lg-2">
                     <ul class="contact-info">
                         <li><em class="fab fa-twitter"></em><span>@_electenero</span></li>
-                        <li><em class="fa fa-envelope"></em><span>info@electronero.com</span></li>
+                        <li><em class="fa fa-envelope"></em><span>electronerodev@gmail.com</span></li>
                         <li><em class="fab fa-telegram"></em><span>Join us on Telegram</span></li>
                     </ul>
                 </div>
@@ -230,82 +230,9 @@
     <!-- JavaScript (include all script here) -->
     <script src="/assets/js/jquery.bundle.js?ver=113"></script>
     <script src="/assets/js/script.js?ver=113"></script>
-
-    <script type="text/javascript">
-
-    let formChecker = false;
-    let subChecker = false;
-    var contactForm = $('#contact-form'), subscribeForm = $('#subscribe-form');
-    function clearForm()
-    {
-    document.getElementById("contact-form").reset();
-    document.getElementById("subscribe-form").reset();
-    }
-    function requiredSub()
-    {
-      var subEmail = document.forms["subscribe-form"]["email"].value;
-    if (subEmail === "")
-    {
-    subChecker = false;
-    }
-    else
-    {
-    subChecker = true;
-    }
-    }
-    function requiredForm()
-    {
-      var name = document.forms["contact-form"]["name"].value;
-      var email = document.forms["contact-form"]["email"].value;
-      var message = document.forms["contact-form"]["message"].value;
-    if (email === "")
-    {
-    formChecker = false;
-    }
-    else
-    {
-    formChecker = true;
-    }
-    }
-    function formSubmit() {
-    requiredForm()
-    if (formChecker == true){
-                let qf_results = contactForm.find('.form-results');
-                qf_results.slideUp(400);
-                let message = 'Message sent! Thanks for contacting us.';
-                var type = 'alert-success';
-                qf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-                setTimeout(clearForm, 3000);
-    };
-    if (formChecker == false){
-                let qf_results = contactForm.find('.form-results');
-                qf_results.slideUp(400);
-                let message = 'Message could not be sent! Please try again momentarily.';
-                var type = 'alert-danger';
-                qf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-    };
-};
-    function subSubmit() {
-    requiredSub()
-    if (subChecker == true){
-                var sf_results = subscribeForm.find('.subscribe-results');
-                sf_results.slideUp(400);
-                let message = 'Message sent! Thanks for contacting us.';
-                var type = 'alert-success';
-                sf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-                setTimeout(clearForm, 3000);
-    };
-    if (subChecker == false){
-                var sf_results = subscribeForm.find('.subscribe-results');
-                sf_results.slideUp(400);
-                let message = 'Message could not be sent! Please try again momentarily.';
-                var type = 'alert-danger';
-                sf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-    };
-};
-
-
-    </script>
+	
+    // form validation animations
+    <script src="/assets/js/formchecker.js"></script>
 
 </body>
 </html>
