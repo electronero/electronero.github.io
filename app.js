@@ -35,6 +35,7 @@ app.use('/images', express.static('images')); // serve the files inside images .
 app.use('/', index); 
 app.use('/blog', blog); // add blog route
 app.use('/docs', docs); // add docs route 
+app.use('/user-guides', docs); // add docs route 
 app.use('/legal', legal); // add legal route 
 app.use('/', contact);
 
