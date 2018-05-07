@@ -29,4 +29,8 @@ router.get('/import-electronero-blockchain', function(req, res, next) {
 router.get('/electronero-tools', function(req, res, next) {
   res.render('electronero-tools', { title: 'Electronero Tools' });
 });
+// get pool-mining-electronero-with-xmr-stak
+router.get('/pool-mining-electronero-with-xmr-stak', function(req, res, next) {
+  res.render('pool-mining-electronero-with-xmr-stak', { title: 'Pool Mining Electronero w/ XMR-STAK' });
+});
 module.exports = router;
