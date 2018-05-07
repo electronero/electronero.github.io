@@ -59,7 +59,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   // res.render('error');
-  res.render('docs', { title: 'Electronero Docs' });
+  res.render('404', { title: 'Electronero' });
 });
 
 module.exports = app;
