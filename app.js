@@ -34,9 +34,13 @@ app.use('/images', express.static('images')); // serve the files inside images .
 
 app.use('/', index); 
 app.use('/blog', blog); // add blog route
+app.use('/doc', docs); // add doc route 
 app.use('/docs', docs); // add docs route 
-app.use('/user-guides', docs); // add docs route 
+app.use('/user-guides', docs); // add user-guides route 
+app.use('/user-guide', docs); // add user-guide route 
 app.use('/legal', legal); // add legal route 
+app.use('/tos', legal); // add tos route
+app.use('/privacy', legal); // add privacy route
 app.use('/', contact);
 
 // catch 404 and forward to error handler
