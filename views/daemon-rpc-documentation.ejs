@@ -44,11 +44,11 @@
                     <div>
                         <h2 id="introduction">Introduction</h2>
 
-<p>This is a list of the monerod daemon RPC calls, their inputs and outputs, and examples of each.</p>
+<p>This is a list of the electronerod daemon RPC calls, their inputs and outputs, and examples of each.</p>
 
 <p>Many RPC calls use the daemon's JSON RPC interface while others use their own interfaces, as demonstrated below.</p>
 
-<p>Note: "atomic units" refer to the smallest fraction of 1 XMR according to the monerod implementation. <strong>1 XMR = 1e12 atomic units.</strong></p>
+<p>Note: "atomic units" refer to the smallest fraction of 1 ETNX according to the electronerod implementation. <strong>1 ETNX = 1e2 atomic units.</strong></p>
 
 <h3 id="json-rpc-methods"><a href="#json-rpc-methods">JSON RPC Methods</a>:</h3>
 
@@ -83,10 +83,10 @@
 
 <h2 id="json-rpc-methods-1">JSON RPC Methods</h2>
 
-<p>The majority of monerod RPC calls use the daemon's <code class="highlighter-rouge">json_rpc</code> interface to request various bits of information. These methods all follow a similar structure, for example:</p>
+<p>The majority of electronerod RPC calls use the daemon's <code class="highlighter-rouge">json_rpc</code> interface to request various bits of information. These methods all follow a similar structure, for example:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP=127.0.0.1
-PORT=18081
+PORT=26968
 METHOD='getblockheaderbyheight'
 PARAMS='{"height":912345}'
 curl \
@@ -112,7 +112,7 @@ curl \
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockcount"}' -H 'Content-Type: application/json'  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockcount"}' -H 'Content-Type: application/json'  
 
 {  
   "id": "0",  
@@ -142,7 +142,7 @@ curl \
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"on_getblockhash","params":[912345]}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"on_getblockhash","params":[912345]}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -173,7 +173,7 @@ curl \
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblocktemplate","params":{"wallet_address":"44GBHzv6ZyQdJkjqZje6KLZ3xSyN1hBSFAnLP6EAqJtCRVzMzZmeXTC2AHKDS9aEDTRKmo6a6o9r9j86pYfhCWDkKjbtcns","reserve_size":60}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblocktemplate","params":{"wallet_address":"44GBHzv6ZyQdJkjqZje6KLZ3xSyN1hBSFAnLP6EAqJtCRVzMzZmeXTC2AHKDS9aEDTRKmo6a6o9r9j86pYfhCWDkKjbtcns","reserve_size":60}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -217,15 +217,15 @@ curl \
   <li><em>block_header</em> - A structure containing block header information.
     <ul>
       <li><em>depth</em> -  unsigned int; The number of blocks succeeding this block on the blockchain. A larger number means an older block.</li>
-      <li><em>difficulty</em> - unsigned int; The strength of the Monero network based on mining power.</li>
+      <li><em>difficulty</em> - unsigned int; The strength of the Electronero network based on mining power.</li>
       <li><em>hash</em> - string; The hash of this block.</li>
       <li><em>height</em> - unsigned int; The number of blocks preceding this block on the blockchain.</li>
-      <li><em>major_version</em> - unsigned int; The major version of the monero protocol at this block height.</li>
-      <li><em>minor_version</em> - unsigned int; The minor version of the monero protocol at this block height.</li>
-      <li><em>nonce</em> - unsigned int; a cryptographic random one-time number used in mining a Monero block.</li>
+      <li><em>major_version</em> - unsigned int; The major version of the electronero protocol at this block height.</li>
+      <li><em>minor_version</em> - unsigned int; The minor version of the electronero protocol at this block height.</li>
+      <li><em>nonce</em> - unsigned int; a cryptographic random one-time number used in mining a Electronero block.</li>
       <li><em>orphan_status</em> - boolean; Usually <code class="highlighter-rouge">false</code>. If <code class="highlighter-rouge">true</code>, this block is not part of the longest chain.</li>
       <li><em>prev_hash</em> - string; The hash of the block immediately preceding this block in the chain.</li>
-      <li><em>reward</em> - unsigned int; The amount of new atomic units generated in this block and rewarded to the miner. Note: 1 XMR = 1e12 atomic units.</li>
+      <li><em>reward</em> - unsigned int; The amount of new atomic units generated in this block and rewarded to the miner. Note: 1 ETNX = 1e12 atomic units.</li>
       <li><em>timestamp</em> - unsigned int; The time the block was recorded into the blockchain.</li>
     </ul>
   </li>
@@ -234,7 +234,7 @@ curl \
 
 <p>In this example, the most recent block (990793 at the time) is returned:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getlastblockheader"}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getlastblockheader"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -276,7 +276,7 @@ curl \
 
 <p>In this example, block 912345 is looked up by its hash:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockheaderbyhash","params":{"hash":"e22cf75f39ae720e8b71b3d120a5ac03f0db50bba6379e2850975b4859190bc6"}}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockheaderbyhash","params":{"hash":"e22cf75f39ae720e8b71b3d120a5ac03f0db50bba6379e2850975b4859190bc6"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -318,7 +318,7 @@ curl \
 
 <p>In this example, block 912345 is looked up by its height (notice that the returned information is the save as in the previous example):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockheaderbyheight","params":{"height":912345}}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblockheaderbyheight","params":{"height":912345}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -402,7 +402,7 @@ curl \
 
 <p>In the following example, block 912345 is looked up by its height. Note that block 912345 does not have any non-coinbase transactions. (See the next example for a block with extra transactions):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblock","params":{"height":912345}}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblock","params":{"height":912345}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -432,7 +432,7 @@ curl \
 
 <p>In the following example, block 993056 is looked up by its hash. Note that block 993056 has 3 non-coinbase transactions:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblock","params":{"hash":"510ee3c4e14330a7b96e883c323a60ebd1b5556ac1262d0bc03c24a3b785516f"}}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getblock","params":{"hash":"510ee3c4e14330a7b96e883c323a60ebd1b5556ac1262d0bc03c24a3b785516f"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -492,7 +492,7 @@ curl \
 
 <p>Following is an example of <code class="highlighter-rouge">get_connections</code> and it's return:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_connections"}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_connections"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -550,7 +550,7 @@ curl \
 
 <p>Following is an example <code class="highlighter-rouge">get_info</code> call and its return:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_info"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -596,7 +596,7 @@ curl \
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"hard_fork_info"}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"hard_fork_info"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -639,7 +639,7 @@ curl \
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"setbans","params":{"bans":[{"ip":838969536,"ban":true,"seconds":30}]}}' -H  'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"setbans","params":{"bans":[{"ip":838969536,"ban":true,"seconds":30}]}}' -H  'Content-Type: application/json'
 
 {
   "id": "0",
@@ -668,7 +668,7 @@ curl \
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getbans"}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getbans"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -692,7 +692,7 @@ curl \
 <p>The data structure for these calls is different than the JSON RPC calls. Whereas the JSON RPC methods were called using the <code class="highlighter-rouge">/json_rpc</code> extension and specifying a method, these methods are called at their own extensions. For example:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP=127.0.0.1
-PORT=18081
+PORT=26968
 METHOD='gettransactions'
 PARAMS='{"txs_hashes":["d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"]}'
 curl \
@@ -715,7 +715,7 @@ curl \
   <li><em>height</em> - unsigned int; Current length of longest chain known to daemon.</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/getheight -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/getheight -H 'Content-Type: application/json'
 
 {
   "height": 993488,
@@ -771,7 +771,7 @@ Example 1: Return transaction information in binary format.</li>
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/gettransactions -d '{"txs_hashes":["d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"]}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/gettransactions -d '{"txs_hashes":["d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"]}' -H 'Content-Type: application/json'
 
 {
   "status": "OK",
@@ -781,7 +781,7 @@ Example 1: Return transaction information in binary format.</li>
 
 <p>Example 2: Decode returned transaction information in JSON format. Note: the "vout" list has been truncated in the displayed return for space considerations.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/gettransactions -d '{"txs_hashes":["d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"],"decode_as_json":true}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/gettransactions -d '{"txs_hashes":["d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"],"decode_as_json":true}' -H 'Content-Type: application/json'
 
 {
   "status": "OK",
@@ -809,7 +809,7 @@ Example 1: Return transaction information in binary format.</li>
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/is_key_image_spent -d '{"key_images":["8d1bd8181bf7d857bdb281e0153d84cd55a3fcaa57c3e570f4a49f935850b5e3","7319134bfc50668251f5b899c66b005805ee255c136f0e1cecbb0f3a912e09d4"]}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/is_key_image_spent -d '{"key_images":["8d1bd8181bf7d857bdb281e0153d84cd55a3fcaa57c3e570f4a49f935850b5e3","7319134bfc50668251f5b899c66b005805ee255c136f0e1cecbb0f3a912e09d4"]}' -H 'Content-Type: application/json'
 
 {
   "spent_status": [1,2],
@@ -846,7 +846,7 @@ Example 1: Return transaction information in binary format.</li>
 
 <p>Example (No return information included here.):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/sendrawtransaction -d '{"tx_as_hex":"de6a3...", "do_not_relay":false}' -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/sendrawtransaction -d '{"tx_as_hex":"de6a3...", "do_not_relay":false}' -H 'Content-Type: application/json'
 </code></pre></div></div>
 
 <h3 id="get_transaction_pool"><strong>/get_transaction_pool</strong></h3>
@@ -911,7 +911,7 @@ Example 1: Return transaction information in binary format.</li>
 
 <p>Example (Note: Some lists in the returned information have been truncated for display reasons):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/get_transaction_pool -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/get_transaction_pool -H 'Content-Type: application/json'
 
 {
   "spent_key_images": [{
@@ -953,7 +953,7 @@ Example 1: Return transaction information in binary format.</li>
 
 <p>Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:18081/stop_daemon -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26968/stop_daemon -H 'Content-Type: application/json'
 
 {
   "status": "OK"
