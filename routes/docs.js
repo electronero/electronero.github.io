@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('docs', { title: 'Electronero Docs' });
 });
-router.get('/user-guides/wallet-rpc-documentation', function(req, res, next) {
+router.get('/wallet-rpc-documentation', function(req, res, next) {
   res.render('wallet-rpc-documentation', { title: 'Electronero Wallet RPC Documentation' });
 });
 module.exports = router;
