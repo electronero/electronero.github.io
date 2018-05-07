@@ -10,6 +10,7 @@ var path = require('path');
 var index = require('./routes/index');
 var blog = require('./routes/blog');
 var docs = require('./routes/docs'); 
+var legal = require('./routes/legal'); 
 var contact = require('./routes/contact');
 
 var app = express();
@@ -33,7 +34,8 @@ app.use('/images', express.static('images')); // serve the files inside images .
 
 app.use('/', index); 
 app.use('/blog', blog); // add blog route
-app.use('/docs', docs); // add docs route
+app.use('/docs', docs); // add docs route 
+app.use('/legal', legal); // add legal route 
 app.use('/', contact);
 
 // catch 404 and forward to error handler
