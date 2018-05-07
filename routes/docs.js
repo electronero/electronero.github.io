@@ -17,4 +17,16 @@ router.get('/daemon-rpc-documentation', function(req, res, next) {
 router.get('/offline-backup', function(req, res, next) {
   res.render('offline-backup', { title: 'Electronero Offline Backup' });
 });
+// get offline-backup
+router.get('/vps-electronero-node', function(req, res, next) {
+  res.render('vps-electronero-node', { title: 'Run an Electronero Node on VPS' });
+});
+// get offline-backup
+router.get('/import-electronero-blockchain', function(req, res, next) {
+  res.render('import-electronero-blockchain', { title: 'Electronero Blockchain Import' });
+});
+// get offline-backup
+router.get('/electronero-tools', function(req, res, next) {
+  res.render('electronero-tools', { title: 'Electronero Tools' });
+});
 module.exports = router;
