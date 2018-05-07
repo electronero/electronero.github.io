@@ -1,0 +1,22 @@
+code {
+    white-space: pre-wrap;
+    background-color: #fff1e8;
+    color: #2f6f9f;
+    padding: 0.2rem;
+    margin: 0 0.2rem;
+    border-radius: 0.2rem;
+    text-indent: 0;
+    line-height: 1.1rem;
+}
+
+pre.highlight {
+    background-color: #fff1e8;
+    color: #2f6f9f;
+    padding: 0.7rem;
+    border-radius: 0.2rem;
+    text-indent: -6px;
+}
+
+pre.highlight>code {
+    background-color: none;
+}
