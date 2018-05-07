@@ -33,4 +33,8 @@ router.get('/electronero-tools', function(req, res, next) {
 router.get('/pool-mining-electronero-with-xmr-stak', function(req, res, next) {
   res.render('pool-mining-electronero-with-xmr-stak', { title: 'Pool Mining Electronero w/ XMR-STAK' });
 });
+// get pool-mining-electronero-with-xmr-stak
+router.get('/restore-wallet-unlock-etnx', function(req, res, next) {
+  res.render('restore-wallet-unlock-etnx', { title: 'Restore Electronero Wallet & Unlock ETNX' });
+});
 module.exports = router;
