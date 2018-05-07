@@ -40,24 +40,28 @@
 
 
 
-<b>Introduction</b>
-This is a list of the electronero-wallet-rpc calls, their inputs and outputs, and examples of each. The program electronero-wallet-rpc replaced the rpc interface that was in simplewallet and then electronero-wallet-cli.
+<div class="info-block text-adapt">
+                    <div>
+                        <h2 id="introduction">Introduction</h2>
 
-All electronero-wallet-rpc methods use the same JSON RPC interface. For example:
-<pre class="highlight"><code>
-IP=127.0.0.1
-PORT=26968
+<p>This is a list of the monero-wallet-rpc calls, their inputs and outputs, and examples of each. The program monero-wallet-rpc replaced the rpc interface that was in simplewallet and then monero-wallet-cli.</p>
+
+<p>All monero-wallet-rpc methods use the same JSON RPC interface. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP=127.0.0.1
+PORT=26969
 METHOD="make_integrated_address"
 PARAMS="{\"payment_id\":\"1234567890123456789012345678900012345678901234567890123456789000\"}"
 curl \
     -X POST http://$IP:$PORT/json_rpc \
     -d '{"jsonrpc":"2.0","id":"0","method":"'$METHOD'","params":'"$PARAMS"'}' \
     -H 'Content-Type: application/json'
-    </code></pre>
-If the electronero-wallet-rpc was executed with the --rpc-login argument as username:password, then follow this example:
-<pre class="highlight"><code>
-IP=127.0.0.1
-PORT=26968
+</code></pre></div></div>
+
+<p>If the monero-wallet-rpc was executed with the <code class="highlighter-rouge">--rpc-login</code> argument as <code class="highlighter-rouge">username:password</code>, then follow this example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP=127.0.0.1
+PORT=26969
 METHOD="make_integrated_address"
 PARAMS="{\"payment_id\":\"1234567890123456789012345678900012345678901234567890123456789000\"}"
 curl \
@@ -65,58 +69,70 @@ curl \
     -X POST http://$IP:$PORT/json_rpc \
     -d '{"jsonrpc":"2.0","id":"0","method":"'$METHOD'","params":'"$PARAMS"'}' \
     -H 'Content-Type: application/json'
-    </code></pre>
-Note: "atomic units" refer to the smallest fraction of 1 ETNX according to the electronerod implementation. 1 ETNX = 1e2 atomic units.
-<pre class="highlight"><code>
-Index of JSON RPC Methods:
-getbalance
-getaddress
-getheight
-transfer
-transfer_split
-sweep_dust
-sweep_all
-store
-get_payments
-get_bulk_payments
-get_transfers
-get_transfer_by_txid
-incoming_transfers
-query_key
-make_integrated_address
-split_integrated_address
-stop_wallet
-make_uri
-parse_uri
-rescan_blockchain
-set_tx_notes
-get_tx_notes
-sign
-verify
-export_key_images
-import_key_images
-get_address_book
-add_address_book
-delete_address_book
-rescan_spent
-start_mining
-stop_mining
-get_languages
-create_wallet
-open_wallet
-JSON RPC Methods:
-getbalance
-Return the wallet's balance.
-</code></pre>
-Inputs: None.
+</code></pre></div></div>
 
-Outputs:
+<p>Note: "atomic units" refer to the smallest fraction of 1 ETNX according to the monerod implementation. <strong>1 ETNX = 1e12 atomic units.</strong></p>
 
-balance - unsigned int; The total balance of the current electronero-wallet-rpc in session.
-unlocked_balance - unsigned int; Unlocked funds are those funds that are sufficiently deep enough in the electronero blockchain to be considered safe to spend.
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getbalance"}' -H 'Content-Type: application/json'
+<h3 id="index-of-json-rpc-methods">Index of JSON RPC Methods:</h3>
+
+<ul>
+  <li><a href="#getbalance">getbalance</a></li>
+  <li><a href="#getaddress">getaddress</a></li>
+  <li><a href="#getheight">getheight</a></li>
+  <li><a href="#transfer">transfer</a></li>
+  <li><a href="#transfer_split">transfer_split</a></li>
+  <li><a href="#sweep_dust">sweep_dust</a></li>
+  <li><a href="#sweep_all">sweep_all</a></li>
+  <li><a href="#store">store</a></li>
+  <li><a href="#get_payments">get_payments</a></li>
+  <li><a href="#get_bulk_payments">get_bulk_payments</a></li>
+  <li><a href="#get_transfers">get_transfers</a></li>
+  <li><a href="#get_transfer_by_txid">get_transfer_by_txid</a></li>
+  <li><a href="#incoming_transfers">incoming_transfers</a></li>
+  <li><a href="#query_key">query_key</a></li>
+  <li><a href="#make_integrated_address">make_integrated_address</a></li>
+  <li><a href="#split_integrated_address">split_integrated_address</a></li>
+  <li><a href="#stop_wallet">stop_wallet</a></li>
+  <li><a href="#make_uri">make_uri</a></li>
+  <li><a href="#parse_uri">parse_uri</a></li>
+  <li><a href="#rescan_blockchain">rescan_blockchain</a></li>
+  <li><a href="#set_tx_notes">set_tx_notes</a></li>
+  <li><a href="#get_tx_notes">get_tx_notes</a></li>
+  <li><a href="#sign">sign</a></li>
+  <li><a href="#verify">verify</a></li>
+  <li><a href="#export_key_images">export_key_images</a></li>
+  <li><a href="#import_key_images">import_key_images</a></li>
+  <li><a href="#get_address_book">get_address_book</a></li>
+  <li><a href="#add_address_book">add_address_book</a></li>
+  <li><a href="#delete_address_book">delete_address_book</a></li>
+  <li><a href="#rescan_spent">rescan_spent</a></li>
+  <li><a href="#start_mining">start_mining</a></li>
+  <li><a href="#stop_mining">stop_mining</a></li>
+  <li><a href="#get_languages">get_languages</a></li>
+  <li><a href="#create_wallet">create_wallet</a></li>
+  <li><a href="#open_wallet">open_wallet</a></li>
+</ul>
+
+<hr>
+
+<h2 id="json-rpc-methods">JSON RPC Methods:</h2>
+
+<h3 id="getbalance"><strong>getbalance</strong></h3>
+
+<p>Return the wallet's balance.</p>
+
+<p>Inputs: <em>None</em>.</p>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>balance</em> - unsigned int; The total balance of the current monero-wallet-rpc in session.</li>
+  <li><em>unlocked_balance</em> - unsigned int; Unlocked funds are those funds that are sufficiently deep enough in the Electronero blockchain to be considered safe to spend.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getbalance"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -126,22 +142,24 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "unlocked_balance": 50000000000
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-getaddress
-</code></pre>
-Return the wallet's address.
+</code></pre></div></div>
 
-Inputs: None.
+<h3 id="getaddress"><strong>getaddress</strong></h3>
 
-Outputs:
+<p>Return the wallet's address.</p>
 
-address - string; The 95-character hex address string of the electronero-wallet-rpc in session.
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getaddress"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs: <em>None</em>.</p>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>address</em> - string; The 95-character hex address string of the monero-wallet-rpc in session.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getaddress"}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -149,22 +167,24 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "address": "427ZuEhNJQRXoyJAeEoBaNW56ScQaLXyyQWgxeRL9KgAUhVzkvfiELZV7fCPBuuB2CGuJiWFQjhnhhwiH1FsHYGQGaDsaBA"
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-getheight
-</code></pre>
-Returns the wallet's current block height.
+</code></pre></div></div>
 
-Inputs: None.
+<h3 id="getheight"><strong>getheight</strong></h3>
 
-Outputs:
+<p>Returns the wallet's current block height.</p>
 
-height - unsigned int; The current electronero-wallet-rpc's blockchain height. If the wallet has been offline for a long time, it may need to catch up with the daemon.
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getheight"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs: <em>None</em>.</p>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>height</em> - unsigned int; The current monero-wallet-rpc's blockchain height. If the wallet has been offline for a long time, it may need to catch up with the daemon.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getheight"}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -172,33 +192,43 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "height": 994310
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-transfer</code></pre>
-Send electronero to a number of recipients.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="transfer"><strong>transfer</strong></h3>
 
-destinations - array of destinations to receive ETNX:
-amount - unsigned int; Amount to send to each destination, in atomic units.
-address - string; Destination public address.
-fee - unsigned int; Ignored, will be automatically calculated.
-mixin - unsigned int; Number of outpouts from the blockchain to mix with (0 means no mixing).
-unlock_time - unsigned int; Number of blocks before the electronero can be spent (0 to not add a lock).
-payment_id - string; (Optional) Random 32-byte/64-character hex string to identify a transaction.
-get_tx_key - boolean; (Optional) Return the transaction key after sending.
-priority - unsigned int; Set a priority for the transaction. Accepted Values are: 0-3 for: default, unimportant, normal, elevated, priority.
-do_not_relay - boolean; (Optional) If true, the newly created transaction will not be relayed to the electronero network. (Defaults to false)
-get_tx_hex - boolean; Return the transaction as hex string after sending
-Outputs:
+<p>Send monero to a number of recipients.</p>
 
-fee - Integer value of the fee charged for the txn.
-tx_hash - String for the publically searchable transaction hash
-tx_key - String for the transaction key if get_tx_key is true, otherwise, blank string.
-tx_blob - Transaction as hex string if get_tx_hex is true
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer","params":{"destinations":[{"amount":100000000,"address":"9wNgSYy2F9qPZu7KBjvsFgZLTKE2TZgEpNFbGka9gA5zPmAXS35QzzYaLKJRkYTnzgArGNX7TvSqZC87tBLwtaC5RQgJ8rm"},{"amount":200000000,"address":"9vH5D7Fv47mbpCpdcthcjU34rqiiAYRCh1tYywmhqnEk9iwCE9yppgNCXAyVHG5qJt2kExa42TuhzQfJbmbpeGLkVbg8xit"}],"mixin":4,"get_tx_key": true}}' -H 'Content-Type: application/json'
+<p>Inputs:</p>
+
+<ul>
+  <li><em>destinations</em> - array of destinations to receive ETNX:
+    <ul>
+      <li><em>amount</em> - unsigned int; Amount to send to each destination, in atomic units.</li>
+      <li><em>address</em> - string; Destination public address.</li>
+    </ul>
+  </li>
+  <li><em>fee</em> - unsigned int; Ignored, will be automatically calculated.</li>
+  <li><em>mixin</em> - unsigned int; Number of outpouts from the blockchain to mix with (0 means no mixing).</li>
+  <li><em>unlock_time</em> - unsigned int; Number of blocks before the monero can be spent (0 to not add a lock).</li>
+  <li><em>payment_id</em> - string; (Optional) Random 32-byte/64-character hex string to identify a transaction.</li>
+  <li><em>get_tx_key</em> - boolean; (Optional) Return the transaction key after sending.</li>
+  <li><em>priority</em> - unsigned int; Set a priority for the transaction. Accepted Values are: 0-3 for: default, unimportant, normal, elevated, priority.</li>
+  <li><em>do_not_relay</em> - boolean; (Optional) If true, the newly created transaction will not be relayed to the monero network. (Defaults to false)</li>
+  <li><em>get_tx_hex</em> - boolean; Return the transaction as hex string after sending</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>fee</em> - Integer value of the fee charged for the txn.</li>
+  <li><em>tx_hash</em> - String for the publically searchable transaction hash</li>
+  <li><em>tx_key</em> - String for the transaction key if get_tx_key is true, otherwise, blank string.</li>
+  <li><em>tx_blob</em> - Transaction as hex string if get_tx_hex is true</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer","params":{"destinations":[{"amount":100000000,"address":"9wNgSYy2F9qPZu7KBjvsFgZLTKE2TZgEpNFbGka9gA5zPmAXS35QzzYaLKJRkYTnzgArGNX7TvSqZC87tBLwtaC5RQgJ8rm"},{"amount":200000000,"address":"9vH5D7Fv47mbpCpdcthcjU34rqiiAYRCh1tYywmhqnEk9iwCE9yppgNCXAyVHG5qJt2kExa42TuhzQfJbmbpeGLkVbg8xit"}],"mixin":4,"get_tx_key": true}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -209,37 +239,46 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "tx_key": "8d62e5637f1fcc9a8904057d6bed6c697618507b193e956f77c31ce662b2ee07"
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-transfer_split</code></pre>
-Same as transfer, but can split into more than one tx if necessary.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="transfer_split"><strong>transfer_split</strong></h3>
 
-destinations - array of destinations to receive ETNX:
-amount - unsigned int; Amount to send to each destination, in atomic units.
-address - string; Destination public address.
-fee - unsigned int; Ignored, will be automatically calculated.
-mixin - unsigned int; Number of outpouts from the blockchain to mix with (0 means no mixing).
-unlock_time - unsigned int; Number of blocks before the electronero can be spent (0 to not add a lock).
-payment_id - string; (Optional) Random 32-byte/64-character hex string to identify a transaction.
-get_tx_keys - boolean; (Optional) Return the transaction keys after sending. – Ignored
-priority - unsigned int; Set a priority for the transactions. Accepted Values are: 0-3 for: default, unimportant, normal, elevated, priority.
-do_not_relay - boolean; (Optional) If true, the newly created transaction will not be relayed to the electronero network. (Defaults to false)
-get_tx_hex - boolean; Return the transactions as hex string after sending
-new_algorithm - boolean; True to use the new transaction construction algorithm, defaults to false.
-Outputs:
+<p>Same as transfer, but can split into more than one tx if necessary.</p>
 
-fee_list - array of: integer. The amount of fees paid for every transaction.
-tx_hash_list - array of: string. The tx hashes of every transaction.
-tx_blob_list - array of: string. The tx as hex string for every transaction.
-amount_list - array of: integer. The amount transferred for every transaction..
-tx_key_list - array of: string. The transaction keys for every transaction.
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer_split","params":{"destinations":[{"amount":100000000,"address":"9wNgSYy2F9qPZu7KBjvsFgZLTKE2TZgEpNFbGka9gA5zPmAXS35QzzYaLKJRkYTnzgArGNX7TvSqZC87tBwtaC5RQgJ8rm"},{"amount":200000000,"address":"9vH5D7Fv47mbpCpdcthcjU34rqiiAYRCh1tYywmhqnEk9iwCE9yppgNCXAyVHG5qJt2kExa42TuhzQfJbmbpeGLkVbg8xit"},{"amount":200000000,"address":"9vC5Q25cR1d3WzKX6dpTaLJaqZyDrtTnfadTmVuB1Wue2tyFGxUhiE4RGa74pEDJv7gSySzcd1Ao6G1nzSaqp78vLfP6MPj"},{"amount":200000000,"address":"A2MSrn49ziBPJBh8ZNEhhbfyLMou6mao4C1F5TLGUatmUnCxZArDYkcbAnVkVEopWVeak2rKDrmc8JpoS7n5dvfN9YDPBTG"},{"amount":200000000,"address":"9tEDyVQ8zgRQbDYiykTdpw5kZ6qWQWcKfExEj9eQshjpGb3sdr3UyWE2AHWzUGzJjaH9HN1DdGBdyQQ4AqGMc7rr5xYwZWW"}],"mixin":4,"get_tx_key": true, "new_algorithm": true}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs:</p>
+
+<ul>
+  <li><em>destinations</em> - array of destinations to receive ETNX:
+    <ul>
+      <li><em>amount</em> - unsigned int; Amount to send to each destination, in atomic units.</li>
+      <li><em>address</em> - string; Destination public address.</li>
+    </ul>
+  </li>
+  <li><em>fee</em> - unsigned int; Ignored, will be automatically calculated.</li>
+  <li><em>mixin</em> - unsigned int; Number of outpouts from the blockchain to mix with (0 means no mixing).</li>
+  <li><em>unlock_time</em> - unsigned int; Number of blocks before the monero can be spent (0 to not add a lock).</li>
+  <li><em>payment_id</em> - string; (Optional) Random 32-byte/64-character hex string to identify a transaction.</li>
+  <li><em>get_tx_keys</em> - boolean; (Optional) Return the transaction keys after sending. – Ignored</li>
+  <li><em>priority</em> - unsigned int; Set a priority for the transactions. Accepted Values are: 0-3 for: default, unimportant, normal, elevated, priority.</li>
+  <li><em>do_not_relay</em> - boolean; (Optional) If true, the newly created transaction will not be relayed to the monero network. (Defaults to false)</li>
+  <li><em>get_tx_hex</em> - boolean; Return the transactions as hex string after sending</li>
+  <li><em>new_algorithm</em> - boolean; True to use the new transaction construction algorithm, defaults to false.</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>fee_list</em> - array of: integer. The amount of fees paid for every transaction.</li>
+  <li><em>tx_hash_list</em> - array of: string. The tx hashes of every transaction.</li>
+  <li><em>tx_blob_list</em> - array of: string. The tx as hex string for every transaction.</li>
+  <li><em>amount_list</em> - array of: integer. The amount transferred for every transaction..</li>
+  <li><em>tx_key_list</em> - array of: string. The transaction keys for every transaction.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"transfer_split","params":{"destinations":[{"amount":100000000,"address":"9wNgSYy2F9qPZu7KBjvsFgZLTKE2TZgEpNFbGka9gA5zPmAXS35QzzYaLKJRkYTnzgArGNX7TvSqZC87tBwtaC5RQgJ8rm"},{"amount":200000000,"address":"9vH5D7Fv47mbpCpdcthcjU34rqiiAYRCh1tYywmhqnEk9iwCE9yppgNCXAyVHG5qJt2kExa42TuhzQfJbmbpeGLkVbg8xit"},{"amount":200000000,"address":"9vC5Q25cR1d3WzKX6dpTaLJaqZyDrtTnfadTmVuB1Wue2tyFGxUhiE4RGa74pEDJv7gSySzcd1Ao6G1nzSaqp78vLfP6MPj"},{"amount":200000000,"address":"A2MSrn49ziBPJBh8ZNEhhbfyLMou6mao4C1F5TLGUatmUnCxZArDYkcbAnVkVEopWVeak2rKDrmc8JpoS7n5dvfN9YDPBTG"},{"amount":200000000,"address":"9tEDyVQ8zgRQbDYiykTdpw5kZ6qWQWcKfExEj9eQshjpGb3sdr3UyWE2AHWzUGzJjaH9HN1DdGBdyQQ4AqGMc7rr5xYwZWW"}],"mixin":4,"get_tx_key": true, "new_algorithm": true}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -248,22 +287,24 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "tx_hash_list": ["c5c389846e701c27aaf1f7ab8b9dc457b471fcea5bc9710e8020d51275afbc54"]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-sweep_dust
-</code></pre>
-Send all dust outputs back to the wallet's, to make them easier to spend (and mix).
+</code></pre></div></div>
 
-Inputs: None.
+<h3 id="sweep_dust"><strong>sweep_dust</strong></h3>
 
-Outputs:
+<p>Send all dust outputs back to the wallet's, to make them easier to spend (and mix).</p>
 
-tx_hash_list - list of: string
-Example (In this example, sweep_dust returns an error due to insufficient funds to sweep):
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_dust"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs: <em>None</em>.</p>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>tx_hash_list</em> - list of: string</li>
+</ul>
+
+<p>Example (In this example, <code class="highlighter-rouge">sweep_dust</code> returns an error due to insufficient funds to sweep):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_dust"}' -H 'Content-Type: application/json'
+
 {
   "error": {
     "code": -4,
@@ -272,32 +313,38 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   "id": "0",
   "jsonrpc": "2.0"
 }
-</code></pre>
-<pre class="highlight"><code>
-sweep_all</code></pre>
-Send all unlocked balance to an address.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="sweep_all"><strong>sweep_all</strong></h3>
 
-address - string; Destination public address.
-priority - unsigned int; (Optional)
-mixin - unsigned int; Number of outpouts from the blockchain to mix with (0 means no mixing).
-unlock_time - unsigned int; Number of blocks before the electronero can be spent (0 to not add a lock).
-payment_id - string; (Optional) Random 32-byte/64-character hex string to identify a transaction.
-get_tx_keys - boolean; (Optional) Return the transaction keys after sending.
-below_amount - unsigned int; (Optional)
-do_not_relay - boolean; (Optional)
-get_tx_hex - boolean; (Optional) return the transactions as hex encoded string.
-Outputs:
+<p>Send all unlocked balance to an address.</p>
 
-tx_hash_list - array of string;
-tx_key_list - array of string;
-tx_blob_list - array of string;
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_all","params":{"address":"9sS8eRU2b5ZbN2FPSrpkiab1bjbHE5XtL6Ti6We3Fhw5aQPudRfVVypjgzKDNkxtvTQSPs122NKggb2mqcqkKSeMNVu59S","mixin":2,"unlock_time":0,"get_tx_keys":true}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs:</p>
+
+<ul>
+  <li><em>address</em> - string; Destination public address.</li>
+  <li><em>priority</em> - unsigned int; (Optional)</li>
+  <li><em>mixin</em> - unsigned int; Number of outpouts from the blockchain to mix with (0 means no mixing).</li>
+  <li><em>unlock_time</em> - unsigned int; Number of blocks before the monero can be spent (0 to not add a lock).</li>
+  <li><em>payment_id</em> - string; (Optional) Random 32-byte/64-character hex string to identify a transaction.</li>
+  <li><em>get_tx_keys</em> - boolean; (Optional) Return the transaction keys after sending.</li>
+  <li><em>below_amount</em> - unsigned int; (Optional)</li>
+  <li><em>do_not_relay</em> - boolean; (Optional)</li>
+  <li><em>get_tx_hex</em> - boolean; (Optional) return the transactions as hex encoded string.</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>tx_hash_list</em> - array of string;</li>
+  <li><em>tx_key_list</em> - array of string;</li>
+  <li><em>tx_blob_list</em> - array of string;</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sweep_all","params":{"address":"9sS8eRU2b5ZbN2FPSrpkiab1bjbHE5XtL6Ti6We3Fhw5aQPudRfVVypjgzKDNkxtvTQSPs122NKggb2mqcqkKSeMNVu59S","mixin":2,"unlock_time":0,"get_tx_keys":true}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -306,49 +353,56 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "tx_key_list": ["e83b3b78235e36cd7e4d9695efd81a3b3e64c7d1f1ebd61892f0a7add6a50301"]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-store
-</code></pre>
-Save the blockchain.
+</code></pre></div></div>
 
-Inputs: None.
+<h3 id="store"><strong>store</strong></h3>
 
-Outputs: None.
+<p>Save the blockchain.</p>
 
-Example:
-<pre class="highlight"><code>
+<p>Inputs: <em>None</em>.</p>
 
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"store"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs: <em>None</em>.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"store"}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
-}</code></pre>
-<pre class="highlight"><code>
-get_payments
-</code></pre>
-Get a list of incoming payments using a given payment id.
+}
+</code></pre></div></div>
 
-Inputs:
+<h3 id="get_payments"><strong>get_payments</strong></h3>
 
-payment_id - string
-Outputs:
+<p>Get a list of incoming payments using a given payment id.</p>
 
-payments - list of:
-payment_id - string
-tx_hash - string
-amount - unsigned int
-block_height - unsigned int
-unlock_time - unsigned int
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_payments","params":{"payment_id":"4279257e0a20608e25dba8744949c9e1caff4fcdafc7d5362ecf14225f3d9030"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs:</p>
+
+<ul>
+  <li><em>payment_id</em> - string</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>payments</em> - list of:
+    <ul>
+      <li><em>payment_id</em> - string</li>
+      <li><em>tx_hash</em> - string</li>
+      <li><em>amount</em> - unsigned int</li>
+      <li><em>block_height</em> - unsigned int</li>
+      <li><em>unlock_time</em> - unsigned int</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_payments","params":{"payment_id":"4279257e0a20608e25dba8744949c9e1caff4fcdafc7d5362ecf14225f3d9030"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -362,29 +416,37 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     }]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-get_bulk_payments</code></pre>
-Get a list of incoming payments using a given payment id, or a list of payments ids, from a given height. This method is the preferred method over get_payments because it has the same functionality but is more extendable. Either is fine for looking up transactions by a single payment ID.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="get_bulk_payments"><strong>get_bulk_payments</strong></h3>
 
-payment_ids - array of: string
-min_block_height - unsigned int; The block height at which to start looking for payments.
-Outputs:
+<p>Get a list of incoming payments using a given payment id, or a list of payments ids, from a given height. This method is the preferred method over <code class="highlighter-rouge">get_payments</code> because it has the same functionality but is more extendable. Either is fine for looking up transactions by a single payment ID.</p>
 
-payments - list of:
-payment_id - string
-tx_hash - string
-amount - unsigned int
-block_height - unsigned int
-unlock_time - unsigned int
-Example:
+<p>Inputs:</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bulk_payments","params":{"payment_ids":["4279257e0a20608e25dba8744949c9e1caff4fcdafc7d5362ecf14225f3d9030"],"min_block_height":990000}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<ul>
+  <li><em>payment_ids</em> - array of: string</li>
+  <li><em>min_block_height</em> - unsigned int; The block height at which to start looking for payments.</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>payments</em> - list of:
+    <ul>
+      <li><em>payment_id</em> - string</li>
+      <li><em>tx_hash</em> - string</li>
+      <li><em>amount</em> - unsigned int</li>
+      <li><em>block_height</em> - unsigned int</li>
+      <li><em>unlock_time</em> - unsigned int</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bulk_payments","params":{"payment_ids":["4279257e0a20608e25dba8744949c9e1caff4fcdafc7d5362ecf14225f3d9030"],"min_block_height":990000}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -398,43 +460,51 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     }]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-get_transfers</code></pre>
-Returns a list of transfers.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="get_transfers"><strong>get_transfers</strong></h3>
 
-in - boolean;
-out - boolean;
-pending - boolean;
-failed - boolean;
-pool - boolean;
-filter_by_height - boolean;
-min_height - unsigned int;
-max_height - unsigned int;
-Outputs:
+<p>Returns a list of transfers.</p>
 
-in array of transfers:
-txid - string;
-payment_id - string;
-height - unsigned int;
-timestamp - unsigned int;
-amount - unsigned int;
-fee - unsigned int;
-note - string;
-destinations - std::list;
-type - string;
-out array of transfers
-pending array of transfers
-failed array of transfers
-pool array of transfers
-Example:
+<p>Inputs:</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfers","params":{"pool":true}}' -H 'Content-Type: application/json'</code></pre>
+<ul>
+  <li><em>in</em> - boolean;</li>
+  <li><em>out</em> - boolean;</li>
+  <li><em>pending</em> - boolean;</li>
+  <li><em>failed</em> - boolean;</li>
+  <li><em>pool</em> - boolean;</li>
+  <li><em>filter_by_height</em> - boolean;</li>
+  <li><em>min_height</em> - unsigned int;</li>
+  <li><em>max_height</em> - unsigned int;</li>
+</ul>
 
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>in</em> array of transfers:
+    <ul>
+      <li><em>txid</em> - string;</li>
+      <li><em>payment_id</em> - string;</li>
+      <li><em>height</em> - unsigned int;</li>
+      <li><em>timestamp</em> - unsigned int;</li>
+      <li><em>amount</em> - unsigned int;</li>
+      <li><em>fee</em> - unsigned int;</li>
+      <li><em>note</em> - string;</li>
+      <li><em>destinations</em> - std::list<transfer_destination>;</transfer_destination></li>
+      <li><em>type</em> - string;</li>
+    </ul>
+  </li>
+  <li><em>out</em> array of transfers</li>
+  <li><em>pending</em> array of transfers</li>
+  <li><em>failed</em> array of transfers</li>
+  <li><em>pool</em> array of transfers</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfers","params":{"pool":true}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -451,32 +521,38 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     }]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-get_transfer_by_txid
-</code></pre>
+</code></pre></div></div>
 
-Show information about a transfer to/from this address.
+<h3 id="get_transfer_by_txid"><strong>get_transfer_by_txid</strong></h3>
 
-Inputs:
+<p>Show information about a transfer to/from this address.</p>
 
-txid - string
-Outputs:
+<p>Inputs:</p>
 
-transfer - JSON object containing parment information:
-amount - unsigned int
-fee - unsigned int
-height - unsigned int
-note - string
-payment_id - string
-timestamp - unsigned int
-txid - string
-type - string
-Example:
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfer_by_txid","params":{"txid":"f2d33ba969a09941c6671e6dfe7e9456e5f686eca72c1a94a3e63ac6d7f27baf"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<ul>
+  <li><em>txid</em> - string</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>transfer</em> - JSON object containing parment information:
+    <ul>
+      <li><em>amount</em> - unsigned int</li>
+      <li><em>fee</em> - unsigned int</li>
+      <li><em>height</em> - unsigned int</li>
+      <li><em>note</em> - string</li>
+      <li><em>payment_id</em> - string</li>
+      <li><em>timestamp</em> - unsigned int</li>
+      <li><em>txid</em> - string</li>
+      <li><em>type</em> - string</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_transfer_by_txid","params":{"txid":"f2d33ba969a09941c6671e6dfe7e9456e5f686eca72c1a94a3e63ac6d7f27baf"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -494,61 +570,35 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     }
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-incoming_transfers
-</code></pre>
-Return a list of incoming transfers to the wallet.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="incoming_transfers"><strong>incoming_transfers</strong></h3>
 
-transfer_type - string; "all": all the transfers, "available": only transfers which are not yet spent, OR "unavailable": only transfers which are already spent.
-Outputs:
+<p>Return a list of incoming transfers to the wallet.</p>
 
-transfers - list of:
-amount - unsigned int
-spent - boolean
-global_index - unsigned int; Mostly internal use, can be ignored by most users.
-tx_hash - string; Several incoming transfers may share the same hash if they were in the same transaction.
-tx_size - unsigned int
-Example (Return "all" transaction types):
+<p>Inputs:</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"all"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {
-    "transfers": [{
-      "amount": 10000000000000,
-      "global_index": 711506,
-      "spent": false,
-      "tx_hash": "&lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&gt;",
-      "tx_size": 5870
-    },{
-      "amount": 300000000000,
-      "global_index": 794232,
-      "spent": false,
-      "tx_hash": "&lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&gt;",
-      "tx_size": 5870
-    },{
-      "amount": 50000000000,
-      "global_index": 213659,
-      "spent": false,
-      "tx_hash": "&lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&gt;",
-      "tx_size": 5870
-    }]
-  }
-}
-</code></pre>
+<ul>
+  <li><em>transfer_type</em> - string; "all": all the transfers, "available": only transfers which are not yet spent, OR "unavailable": only transfers which are already spent.</li>
+</ul>
 
-Example (Return "available" transactions):
+<p>Outputs:</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"available"}}' -H 'Content-Type: application/json'</code></pre>
-<pre class="highlight"><code>
+<ul>
+  <li><em>transfers</em> - list of:
+    <ul>
+      <li><em>amount</em> - unsigned int</li>
+      <li><em>spent</em> - boolean</li>
+      <li><em>global_index</em> - unsigned int; Mostly internal use, can be ignored by most users.</li>
+      <li><em>tx_hash</em> - string; Several incoming transfers may share the same hash if they were in the same transaction.</li>
+      <li><em>tx_size</em> - unsigned int</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example (Return "all" transaction types):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"all"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -558,56 +608,87 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
       "amount": 10000000000000,
       "global_index": 711506,
       "spent": false,
-      "tx_hash": "&lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&gt;",
+      "tx_hash": "&amp;lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&amp;gt;",
       "tx_size": 5870
     },{
       "amount": 300000000000,
       "global_index": 794232,
       "spent": false,
-      "tx_hash": "&lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&gt;",
+      "tx_hash": "&amp;lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&amp;gt;",
       "tx_size": 5870
     },{
       "amount": 50000000000,
       "global_index": 213659,
       "spent": false,
-      "tx_hash": "&lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&gt;",
+      "tx_hash": "&amp;lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&amp;gt;",
       "tx_size": 5870
     }]
   }
 }
-</code></pre>
+</code></pre></div></div>
 
-Example (Return "unavailable" transaction. Note that this particular example returns 0 unavailable transactions):
+<p>Example (Return "available" transactions):</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"unavailable"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"available"}}' -H 'Content-Type: application/json'
+
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+    "transfers": [{
+      "amount": 10000000000000,
+      "global_index": 711506,
+      "spent": false,
+      "tx_hash": "&amp;lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&amp;gt;",
+      "tx_size": 5870
+    },{
+      "amount": 300000000000,
+      "global_index": 794232,
+      "spent": false,
+      "tx_hash": "&amp;lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&amp;gt;",
+      "tx_size": 5870
+    },{
+      "amount": 50000000000,
+      "global_index": 213659,
+      "spent": false,
+      "tx_hash": "&amp;lt;c391089f5b1b02067acc15294e3629a463412af1f1ed0f354113dd4467e4f6c1&amp;gt;",
+      "tx_size": 5870
+    }]
+  }
+}
+</code></pre></div></div>
+
+<p>Example (Return "unavailable" transaction. Note that this particular example returns 0 unavailable transactions):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"incoming_transfers","params":{"transfer_type":"unavailable"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-query_key
-</code></pre>
+</code></pre></div></div>
 
-Return the spend or view private key.
+<h3 id="query_key"><strong>query_key</strong></h3>
 
-Inputs:
+<p>Return the spend or view private key.</p>
 
-key_type - string; Which key to retrieve: "mnemonic" - the mnemonic seed (older wallets do not have one) OR "view_key" - the view key
-Outputs:
+<p>Inputs:</p>
 
-key - string; The view key will be hex encoded, while the mnemonic will be a string of words.
-Example (Query view key):
+<ul>
+  <li><em>key_type</em> - string; Which key to retrieve: "mnemonic" - the mnemonic seed (older wallets do not have one) OR "view_key" - the view key</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"view_key"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>key</em> - string; The view key will be hex encoded, while the mnemonic will be a string of words.</li>
+</ul>
+
+<p>Example (Query view key):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"view_key"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -616,14 +697,11 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "key": "7e341d..."
   }
 }
-</code></pre>
+</code></pre></div></div>
 
-Example (Query mnemonic key):
+<p>Example (Query mnemonic key):</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"mnemonic"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"query_key","params":{"key_type":"mnemonic"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -631,23 +709,28 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   "result": {
     "key": "adapt adapt nostril ..."
   }
-}</code></pre>
-<pre class="highlight"><code>
-make_integrated_address</code></pre>
+}
+</code></pre></div></div>
 
-Make an integrated address from the wallet address and a payment id.
+<h3 id="make_integrated_address"><strong>make_integrated_address</strong></h3>
 
-Inputs:
+<p>Make an integrated address from the wallet address and a payment id.</p>
 
-payment_id - string; hex encoded; can be empty, in which case a random payment id is generated
-Outputs:
+<p>Inputs:</p>
 
-integrated_address - string
-Example (Payment ID is empty, use a random ID):
+<ul>
+  <li><em>payment_id</em> - string; hex encoded; can be empty, in which case a random payment id is generated</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_integrated_address","params":{"payment_id":""}}' -H 'Content-Type: application/json'</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>integrated_address</em> - string</li>
+</ul>
+
+<p>Example (Payment ID is empty, use a random ID):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_integrated_address","params":{"payment_id":""}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -656,50 +739,50 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "integrated_address": "4BpEv3WrufwXoyJAeEoBaNW56ScQaLXyyQWgxeRL9KgAUhVzkvfiELZV7fCPBuuB2CGuJiWFQjhnhhwiH1FsHYGQQ8H2RRJveAtUeiFs6J"
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-split_integrated_address</code></pre>
+</code></pre></div></div>
 
-Retrieve the standard address and payment id corresponding to an integrated address.
+<h3 id="split_integrated_address"><strong>split_integrated_address</strong></h3>
 
-Inputs:
+<p>Retrieve the standard address and payment id corresponding to an integrated address.</p>
 
-integrated_address - string
-Outputs:
+<p>Inputs:</p>
 
-standard_address - string
-payment - string; hex encoded
-Example:
+<ul>
+  <li><em>integrated_address</em> - string</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"split_integrated_address","params":{"integrated_address": "4BpEv3WrufwXoyJAeEoBaNW56ScQaLXyyQWgxeRL9KgAUhVzkvfiELZV7fCPBuuB2CGuJiWFQjhnhhwiH1FsHYGQQ8H2RRJveAtUeiFs6J"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>standard_address</em> - string</li>
+  <li><em>payment</em> - string; hex encoded</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"split_integrated_address","params":{"integrated_address": "4BpEv3WrufwXoyJAeEoBaNW56ScQaLXyyQWgxeRL9KgAUhVzkvfiELZV7fCPBuuB2CGuJiWFQjhnhhwiH1FsHYGQQ8H2RRJveAtUeiFs6J"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
-    "payment_id": "&lt;420fa29b2d9a49f5&gt;",
+    "payment_id": "&amp;lt;420fa29b2d9a49f5&amp;gt;",
     "standard_address": "427ZuEhNJQRXoyJAeEoBaNW56ScQaLXyyQWgxeRL9KgAUhVzkvfiELZV7fCPBuuB2CGuJiWFQjhnhhwiH1FsHYGQGaDsaBA"
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-stop_wallet
-</code></pre>
+</code></pre></div></div>
 
-Stops the wallet, storing the current state.
+<h3 id="stop_wallet"><strong>stop_wallet</strong></h3>
 
-Inputs: None.
+<p>Stops the wallet, storing the current state.</p>
 
-Outputs: None.
+<p>Inputs: <em>None</em>.</p>
 
-Example:
+<p>Outputs: <em>None</em>.</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_wallet"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_wallet"}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -707,58 +790,69 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-make_uri
-</code></pre>
+</code></pre></div></div>
 
-Create a payment URI using the official URI spec.
+<h3 id="make_uri"><strong>make_uri</strong></h3>
 
-Inputs:
+<p>Create a payment URI using the official URI spec.</p>
 
-address - wallet address string
-amount (optional) - the integer amount to receive, in atomic units
-payment_id (optional) - 16 or 64 character hexadecimal payment id string
-recipient_name (optional) - string name of the payment recipient
-tx_description (optional) - string describing the reason for the tx
-Outputs:
+<p>Inputs:</p>
 
-uri - a string containing all the payment input information as a properly formatted payment URI
-Example:
+<ul>
+  <li><em>address</em> - wallet address string</li>
+  <li><em>amount</em> (optional) - the integer amount to receive, in <strong>atomic</strong> units</li>
+  <li><em>payment_id</em> (optional) - 16 or 64 character hexadecimal payment id string</li>
+  <li><em>recipient_name</em> (optional) - string name of the payment recipient</li>
+  <li><em>tx_description</em> (optional) - string describing the reason for the tx</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_uri","params":{"address":"44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A","amount":10,"payment_id":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","tx_description":"Testing out the make_uri function.","recipient_name":"electronero Project donation address"}}'  -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>uri</em> - a string containing all the payment input information as a properly formatted payment URI</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_uri","params":{"address":"44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A","amount":10,"payment_id":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","tx_description":"Testing out the make_uri function.","recipient_name":"Electronero Project donation address"}}'  -H 'Content-Type: application/json'
+
 {
   "id": 0,
   "jsonrpc": "2.0",
   "result": {
-    "uri": "electronero:44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A?tx_payment_id=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&tx_amount=0.000000000010&recipient_name=electronero%20Project%20donation%20address&tx_description=Testing%20out%20the%20make_uri%20function."
+    "uri": "monero:44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A?tx_payment_id=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&amp;tx_amount=0.000000000010&amp;recipient_name=Electronero%20Project%20donation%20address&amp;tx_description=Testing%20out%20the%20make_uri%20function."
   }
-}</code></pre>
-<pre class="highlight"><code>
-parse_uri</code></pre>
+}
+</code></pre></div></div>
 
-Parse a payment URI to get payment information.
+<h3 id="parse_uri"><strong>parse_uri</strong></h3>
 
-Inputs:
+<p>Parse a payment URI to get payment information.</p>
 
-uri - a string containing all the payment input information as a properly formatted payment URI
-Outputs:
+<p>Inputs:</p>
 
-uri - JSON object containing payment information:
-address - wallet address string
-amount - the decimal amount to receive, in coin units (0 if not provided)
-payment_id - 16 or 64 character hexadecimal payment id string (empty if not provided)
-recipient_name - string name of the payment recipient (empty if not provided)
-tx_description - string describing the reason for the tx (empty if not provided)
-Example:
+<ul>
+  <li><em>uri</em> - a string containing all the payment input information as a properly formatted payment URI</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"parse_uri","params":{"uri":"electronero:44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A?tx_payment_id=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&tx_amount=0.000000000010&recipient_name=electronero%20Project%20donation%20address&tx_description=Testing%20out%20the%20make_uri%20function."}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>uri</em> - JSON object containing payment information:
+    <ul>
+      <li><em>address</em> - wallet address string</li>
+      <li><em>amount</em> - the decimal amount to receive, in <strong>coin</strong> units (0 if not provided)</li>
+      <li><em>payment_id</em> - 16 or 64 character hexadecimal payment id string (empty if not provided)</li>
+      <li><em>recipient_name</em> - string name of the payment recipient (empty if not provided)</li>
+      <li><em>tx_description</em> - string describing the reason for the tx (empty if not provided)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"parse_uri","params":{"uri":"monero:44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A?tx_payment_id=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef&amp;tx_amount=0.000000000010&amp;recipient_name=Electronero%20Project%20donation%20address&amp;tx_description=Testing%20out%20the%20make_uri%20function."}}' -H 'Content-Type: application/json'
+
 {
   "id": 0,
   "jsonrpc": "2.0",
@@ -767,76 +861,78 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
       "address": "44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A",
       "amount": 10,
       "payment_id": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-      "recipient_name": "electronero Project donation address",
+      "recipient_name": "Electronero Project donation address",
       "tx_description": "Testing out the make_uri function."
     }
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-rescan_blockchain
-</code></pre>
+</code></pre></div></div>
 
-Rescan blockchain from scratch.
+<h3 id="rescan_blockchain"><strong>rescan_blockchain</strong></h3>
 
-Inputs: None.
+<p>Rescan blockchain from scratch.</p>
 
-Outputs: None.
+<p>Inputs: <em>None</em>.</p>
 
-Example:
+<p>Outputs: <em>None</em>.</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_blockchain" -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_blockchain" -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-set_tx_notes</code></pre>
+</code></pre></div></div>
 
-Set arbitrary string notes for transactions.
+<h3 id="set_tx_notes"><strong>set_tx_notes</strong></h3>
 
-Inputs:
+<p>Set arbitrary string notes for transactions.</p>
 
-txids - array of string; transaction ids
-notes - array of string; notes for the transactions
-Outputs: None.
+<p>Inputs:</p>
 
-Example:
+<ul>
+  <li><em>txids</em> - array of string; transaction ids</li>
+  <li><em>notes</em> - array of string; notes for the transactions</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_tx_notes","params":{"txids":["6a1a100c079c236e2cbf36f7760e8ef1a9e8357c434aa790a8c78de653ec4cf2"],"notes":["This is an example"]}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs: <em>None</em>.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"set_tx_notes","params":{"txids":["6a1a100c079c236e2cbf36f7760e8ef1a9e8357c434aa790a8c78de653ec4cf2"],"notes":["This is an example"]}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
-}</code></pre>
-<pre class="highlight"><code>
-get_tx_notes
-</code></pre>
+}
+</code></pre></div></div>
 
-Get string notes for transactions.
+<h3 id="get_tx_notes"><strong>get_tx_notes</strong></h3>
 
-Inputs:
+<p>Get string notes for transactions.</p>
 
-txids - array of string; transaction ids
-Outputs:
+<p>Inputs:</p>
 
-notes - array of string; notes for the transactions
-Example:
+<ul>
+  <li><em>txids</em> - array of string; transaction ids</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_notes","params":{"txids":["6a1a100c079c236e2cbf36f7760e8ef1a9e8357c434aa790a8c78de653ec4cf2"]}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>notes</em> - array of string; notes for the transactions</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_tx_notes","params":{"txids":["6a1a100c079c236e2cbf36f7760e8ef1a9e8357c434aa790a8c78de653ec4cf2"]}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -844,77 +940,89 @@ $ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "notes": ["This is an example"]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-sign
-</code></pre>
+</code></pre></div></div>
 
-Sign a string.
+<h3 id="sign"><strong>sign</strong></h3>
 
-Inputs:
+<p>Sign a string.</p>
 
-data - string;
-Outputs:
+<p>Inputs:</p>
 
-signature - string;
-Example:
+<ul>
+  <li><em>data</em> - string;</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign","params":{"data":"This is sample data to be signed"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>signature</em> - string;</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"sign","params":{"data":"This is sample data to be signed"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
     "signature": "SigV1Xp61ZkGguxSCHpkYEVw9eaWfRfSoAf36PCsSCApx4DUrKWHEqM9CdNwjeuhJii6LHDVDFxvTPijFsj3L8NDQp1TV"
   }
-}</code></pre>
-<pre class="highlight"><code>
-verify</code></pre>
+}
+</code></pre></div></div>
 
-Verify a signature on a string.
+<h3 id="verify"><strong>verify</strong></h3>
 
-Inputs:
+<p>Verify a signature on a string.</p>
 
-data - string;
-address - string;
-signature - string;
-Outputs:
+<p>Inputs:</p>
 
-good - boolean;
-Example:
+<ul>
+  <li><em>data</em> - string;</li>
+  <li><em>address</em> - string;</li>
+  <li><em>signature</em> - string;</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://127.0.0.1:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"verify","params":{"data":"This is sample data to be signed","address":"9sS8eRU2b5ZbN2FPSrpkiab1bjbHE5XtL6Ti6We3Fhw5aQPudRfVVypjgzKDNkxtvTQZSPs122NKggb2mqcqkKSeMNVu59S","signature":"SigV1Xp61ZkGguxSCHpkYEVw9eaWfRfSoAf36PCsSCApx4DUrKWHEqM9CdNwjeuhJii6LHDVDFxvTPijFsj3L8NDQp1TV"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>good</em> - boolean;</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://127.0.0.1:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"verify","params":{"data":"This is sample data to be signed","address":"9sS8eRU2b5ZbN2FPSrpkiab1bjbHE5XtL6Ti6We3Fhw5aQPudRfVVypjgzKDNkxtvTQZSPs122NKggb2mqcqkKSeMNVu59S","signature":"SigV1Xp61ZkGguxSCHpkYEVw9eaWfRfSoAf36PCsSCApx4DUrKWHEqM9CdNwjeuhJii6LHDVDFxvTPijFsj3L8NDQp1TV"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
     "good": true
   }
-}</code></pre>
-<pre class="highlight"><code>
-export_key_images
-</code></pre>
+}
+</code></pre></div></div>
 
-Export a signed set of key images.
+<h3 id="export_key_images"><strong>export_key_images</strong></h3>
 
-Inputs: None.
+<p>Export a signed set of key images.</p>
 
-Outputs:
+<p>Inputs: <em>None</em>.</p>
 
-signed_key_images - array of signed key images:
-key_image - string;
-signature - string;
-Example:
-<pre class="highlight"><code>
+<p>Outputs:</p>
 
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_key_images"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<ul>
+  <li><em>signed_key_images</em> - array of signed key images:
+    <ul>
+      <li><em>key_image</em> - string;</li>
+      <li><em>signature</em> - string;</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"export_key_images"}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -925,28 +1033,35 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     }]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-import_key_images</code></pre>
+</code></pre></div></div>
 
-Import signed key images list and verify their spent status.
+<h3 id="import_key_images"><strong>import_key_images</strong></h3>
 
-Inputs:
+<p>Import signed key images list and verify their spent status.</p>
 
-signed_key_images - array of signed key images:
-key_image - string;
-signature - string;
-Outputs:
+<p>Inputs:</p>
 
-height - unsigned int;
-spent - unsigned int;
-unspent - unsigned int;
-Example:
+<ul>
+  <li><em>signed_key_images</em> - array of signed key images:
+    <ul>
+      <li><em>key_image</em> - string;</li>
+      <li><em>signature</em> - string;</li>
+    </ul>
+  </li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_key_images", "params":{"signed_key_images":[{"key_image":"63b83df78cafd99e23b5ad3f667bc6f8d38813d9e84c7bb6c223a556dfd34af","signature":"b87b7e989aa86aa2a7a7cd8adcb3a848d3512ff718b168e15217ff3e5da29c0183c0328b97cc052fcb5ee3548aa5e41e530ba9d854199ea19d7ddaf6a54a4c0a"},{"key_image":"44ec12fbc56c533a30b09de8ae26febd515528c4957dfe875430377a7e212b4e","signature":"91105f15be0b25bc2a94bd78a7e261608974d6d888080b9f1815655b98af190340325ea1a0840a5951dacf913d4de1b2bd33ea59c1cb7bce1b6648afa7133d03"}]}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>height</em> - unsigned int;</li>
+  <li><em>spent</em> - unsigned int;</li>
+  <li><em>unspent</em> - unsigned int;</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"import_key_images", "params":{"signed_key_images":[{"key_image":"63b83df78cafd99e23b5ad3f667bc6f8d38813d9e84c7bb6c223a556dfd34af","signature":"b87b7e989aa86aa2a7a7cd8adcb3a848d3512ff718b168e15217ff3e5da29c0183c0328b97cc052fcb5ee3548aa5e41e530ba9d854199ea19d7ddaf6a54a4c0a"},{"key_image":"44ec12fbc56c533a30b09de8ae26febd515528c4957dfe875430377a7e212b4e","signature":"91105f15be0b25bc2a94bd78a7e261608974d6d888080b9f1815655b98af190340325ea1a0840a5951dacf913d4de1b2bd33ea59c1cb7bce1b6648afa7133d03"}]}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -956,28 +1071,35 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "unspent": 4979852760000
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-get_address_book
-</code></pre>
-Retrieves entries from the address book.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="get_address_book"><strong>get_address_book</strong></h3>
 
-entries - array of unsigned int; indices of the requested address book entries
-Outputs:
+<p>Retrieves entries from the address book.</p>
 
-entries - array of entries:
-address - string;
-description - string;
-index - unsigned int;
-payment_id - string;
-Example:
+<p>Inputs:</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_book","params":{"entries":[1,2]}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<ul>
+  <li><em>entries</em> - array of unsigned int; indices of the requested address book entries</li>
+</ul>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>entries</em> - array of entries:
+    <ul>
+      <li><em>address</em> - string;</li>
+      <li><em>description</em> - string;</li>
+      <li><em>index</em> - unsigned int;</li>
+      <li><em>payment_id</em> - string;</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_address_book","params":{"entries":[1,2]}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -995,27 +1117,30 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     }]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-add_address_book
-</code></pre>
+</code></pre></div></div>
 
-Add an entry to the address book.
+<h3 id="add_address_book"><strong>add_address_book</strong></h3>
 
-Inputs:
+<p>Add an entry to the address book.</p>
 
-address - string;
-payment_id - (optional) string, defaults to "0000000000000000000000000000000000000000000000000000000000000000";
-description - (optional) string, defaults to "";
-Outputs:
+<p>Inputs:</p>
 
-index - unsigned int; The index of the address book entry.
-Example:
+<ul>
+  <li><em>address</em> - string;</li>
+  <li><em>payment_id</em> - (optional) string, defaults to "0000000000000000000000000000000000000000000000000000000000000000";</li>
+  <li><em>description</em> - (optional) string, defaults to "";</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"add_address_book","params":{"address":"44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A","description":"Donation address for the electronero project"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs:</p>
+
+<ul>
+  <li><em>index</em> - unsigned int; The index of the address book entry.</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"add_address_book","params":{"address":"44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A","description":"Donation address for the Electronero project"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -1023,115 +1148,114 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "index": 2
   }
 }
-delete_address_book
-Delete an entry from the address book.
+</code></pre></div></div>
 
-Inputs:
+<h3 id="delete_address_book"><strong>delete_address_book</strong></h3>
 
-index - unsigned int; The index of the address book entry.
-Outputs: None.
+<p>Delete an entry from the address book.</p>
 
-Example:
-</code></pre>
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"delete_address_book","params":{"index":0}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Inputs:</p>
+
+<ul>
+  <li><em>index</em> - unsigned int; The index of the address book entry.</li>
+</ul>
+
+<p>Outputs: <em>None</em>.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"delete_address_book","params":{"index":0}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-rescan_spent
-</code></pre>
+</code></pre></div></div>
 
-Rescan the blockchain for spent outputs.
+<h3 id="rescan_spent"><strong>rescan_spent</strong></h3>
 
-Inputs: None.
+<p>Rescan the blockchain for spent outputs.</p>
 
-Outputs: None.
+<p>Inputs: <em>None</em>.</p>
 
-Example:
+<p>Outputs: <em>None</em>.</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_spent"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"rescan_spent"}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-start_mining
-</code></pre>
+</code></pre></div></div>
 
-Start mining in the electronero daemon.
+<h3 id="start_mining"><strong>start_mining</strong></h3>
 
-Inputs:
+<p>Start mining in the Electronero daemon.</p>
 
-threads_count - unsigned int; Number of threads created for mining
-do_background_mining - boolean;
-ignore_battery - boolean;
-Outputs: None.
+<p>Inputs:</p>
 
-Example:
+<ul>
+  <li><em>threads_count</em> - unsigned int; Number of threads created for mining</li>
+  <li><em>do_background_mining</em> - boolean;</li>
+  <li><em>ignore_battery</em> - boolean;</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"start_mining","params":{"threads_count":1,"do_background_mining":true,"ignore_battery":true}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
-{
-  "id": "0",
-  "jsonrpc": "2.0",
-  "result": {
-  }
-}</code></pre>
-<pre class="highlight"><code>
-stop_mining
-</code></pre>
+<p>Outputs: <em>None</em>.</p>
 
-Stop mining in the electronero daemon.
+<p>Example:</p>
 
-Inputs: None.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"start_mining","params":{"threads_count":1,"do_background_mining":true,"ignore_battery":true}}' -H 'Content-Type: application/json'
 
-Outputs: None.
-
-Example:
-
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_mining"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-get_languages
-</code></pre>
+</code></pre></div></div>
 
-Get a list of available languages for your wallet's seed.
+<h3 id="stop_mining"><strong>stop_mining</strong></h3>
 
-Inputs: None.
+<p>Stop mining in the Electronero daemon.</p>
 
-Outputs:
+<p>Inputs: <em>None</em>.</p>
 
-languages - array of string; List of available languages
-Example:
+<p>Outputs: <em>None</em>.</p>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_languages"}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"stop_mining"}' -H 'Content-Type: application/json'
+
+{
+  "id": "0",
+  "jsonrpc": "2.0",
+  "result": {
+  }
+}
+</code></pre></div></div>
+
+<h3 id="get_languages"><strong>get_languages</strong></h3>
+
+<p>Get a list of available languages for your wallet's seed.</p>
+
+<p>Inputs: <em>None</em>.</p>
+
+<p>Outputs:</p>
+
+<ul>
+  <li><em>languages</em> - array of string; List of available languages</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_languages"}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
@@ -1139,59 +1263,61 @@ $ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","me
     "languages": ["Deutsch","English","Español","Français","Italiano","Nederlands","Português","русский язык","日本語","简体中文 (中国)","Esperanto"]
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-create_wallet
-</code></pre>
+</code></pre></div></div>
 
-Create a new wallet. You need to have set the argument "–wallet-dir" when launching electronero-wallet-rpc to make this work.
+<h3 id="create_wallet"><strong>create_wallet</strong></h3>
 
-Inputs:
+<p>Create a new wallet. You need to have set the argument "–wallet-dir" when launching monero-wallet-rpc to make this work.</p>
 
-filename - string;
-password - string;
-language - string; Language for your wallets' seed.
-Outputs: None.
+<p>Inputs:</p>
 
-Example:
+<ul>
+  <li><em>filename</em> - string;</li>
+  <li><em>password</em> - string;</li>
+  <li><em>language</em> - string; Language for your wallets' seed.</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_wallet","params":{"filename":"mytestwallet","password":"mytestpassword","language":"English"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs: <em>None</em>.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_wallet","params":{"filename":"mytestwallet","password":"mytestpassword","language":"English"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
-<pre class="highlight"><code>
-open_wallet
-</code></pre>
+</code></pre></div></div>
 
-Open a wallet. You need to have set the argument "–wallet-dir" when launching electronero-wallet-rpc to make this work.
+<h3 id="open_wallet"><strong>open_wallet</strong></h3>
 
-Inputs:
+<p>Open a wallet. You need to have set the argument "–wallet-dir" when launching monero-wallet-rpc to make this work.</p>
 
-filename - string;
-password - string;
-Outputs: None.
+<p>Inputs:</p>
 
-Example:
+<ul>
+  <li><em>filename</em> - string;</li>
+  <li><em>password</em> - string;</li>
+</ul>
 
-<pre class="highlight"><code>
-$ curl -X POST http://localhost:26968/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"open_wallet","params":{"filename":"mytestwallet","password":"mytestpassword"}}' -H 'Content-Type: application/json'
-</code></pre>
-<pre class="highlight"><code>
+<p>Outputs: <em>None</em>.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -X POST http://localhost:26969/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"open_wallet","params":{"filename":"mytestwallet","password":"mytestpassword"}}' -H 'Content-Type: application/json'
+
 {
   "id": "0",
   "jsonrpc": "2.0",
   "result": {
   }
 }
-</code></pre>
+</code></pre></div></div>
 
+                    </div>
+                </div>
 										</div>
 									</div>
 								</li>
