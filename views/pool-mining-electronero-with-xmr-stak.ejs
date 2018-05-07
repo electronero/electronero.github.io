@@ -1,0 +1,174 @@
+<%# views/pool-mining-electronero-with-xmr-stak.ejs %>
+
+<% extend('blog_layout') %>
+
+    <!-- Banner -->
+    <div id="header" class="page-banner d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-head">
+              <h2 class="page-heading">Pool Mining Electronero w/ xmr-stak</h2>
+            </div>
+          </div>
+          <div class="page-head-image">
+          </div>
+        </div>
+      </div><!-- .container  -->
+    </div>
+    <!-- End Banner -->
+  </header>
+  <!-- End Header -->
+
+
+  <!-- Start Section -->
+  <div class="section section-pad-md section-bg-alt blog-section" id="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="blog-content">
+            <div class="blog-photo">
+            <img src="" alt="">
+            </div>
+            <ul class="blog-meta">
+              <li><span>Posted</span><a href="/">7 MAY, 2018</a></li>
+            </ul>
+            <h3 class="blog-title"><a href="/"><p>Pool Mining Electronero w/ xmr-stak</p> 
+            <p>Last revised: May 7th, 2017(forked from Electronero)</a></p></h3>
+            <p>  
+
+<div class="info-block text-adapt">
+                    <div>
+                        <h1 id="selecting-a-pool">Selecting a pool</h1>
+
+<p>There are many pools to choose from, a list is available at
+<a href="https://electroneropool.com">electroneropool.com</a>. Mining on a larger pool could mean
+more frequent payouts, but mining on a smaller pool helps to keep the network
+decentralized.</p>
+
+<h1 id="selecting-a-cpu-miner">Selecting a CPU miner</h1>
+
+<p>Just like pools, there are a lot of miners to choose from. The one that you
+should pick depends on the hardware you want to mine on. This guide will only
+use a CPU miner, and will be using
+<a href="https://github.com/fireice-uk/xmr-stak-cpu">xmr-stak-cpu</a>. Alternatives include
+<a href="https://github.com/wolf9466/cpuminer-multi">wolf's CPUMiner</a> and
+<a href="https://github.com/genesismining/sgminer-gm">sgminer-gm</a>. However, their
+configuration is slightly different and will not be covered in this guide.</p>
+
+<h2 id="for-windows-systems">For Windows Systems</h2>
+
+<p>If you are using a Windows system, the developer of xmr-stak-cpu provides
+binaries to download on the
+<a href="https://github.com/fireice-uk/xmr-stak-cpu/releases">GitHub release page</a>.</p>
+
+<p>Download <code class="highlighter-rouge">xmr-stak-cpu-win64.zip</code> and extract it somewhere you'll be able to
+find it again.</p>
+
+<h2 id="for-other-operating-systems">For Other Operating Systems</h2>
+
+<p>If you're not using Windows, you will have to compile xmr-stak-cpu for yourself,
+luckily this isn't as hard as it sounds. Before you can compile the miner, you
+will need to install some of its prerequisites.</p>
+
+<p>For Debian-based distros:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libmicrohttpd-dev libssl-dev cmake build-essential
+</code></pre></div></div>
+
+<p>For Red Hat based distros:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install openssl-devel cmake gcc-c++ libmicrohttpd-devel
+</code></pre></div></div>
+
+<!-- TODO: Add dependencies for other operating systems? -->
+
+<p>Following this, you just need to use cmake to generate the build files, run
+make and copy the config file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir build-$(gcc -dumpmachine)
+cd $_
+cmake ../
+make -j$(nproc)
+cp ../config.txt bin/
+cd bin
+</code></pre></div></div>
+
+<p>Don't celebrate just yet, as the miner needs to be configured. Running the miner
+now should give you a block of text to copy and paste:</p>
+
+<p><img src="/images/mine_to_pool/1.png" alt="image1"></p>
+
+<p>Open <code class="highlighter-rouge">config.txt</code> and <em>replace</em> the two <code class="highlighter-rouge">"cpu_threads_conf"</code> lines with the text
+you just copied. It should look something like this afterwards:</p>
+
+<p><img src="/images/mine_to_pool/2.png" alt="image2"></p>
+
+<p>Scroll down in the file until you see the lines containing <code class="highlighter-rouge">"pool_address"</code>.
+<em>Replace</em> the contents of the second set of quotes with the address and port of
+the pool you chose earlier. You can find this information on the pool's website.</p>
+
+<p>Put your wallet address between the quotes on the wallet address. You may leave
+the password blank unless the pool specifies otherwise.</p>
+
+<p>After this, your config should look something like this:</p>
+
+<p><img src="/images/mine_to_pool/3.png" alt="image3"></p>
+
+<h1 id="running-the-miner">Running the miner</h1>
+
+<p><strong>Save the config</strong> file and run the miner!</p>
+
+<p><img src="/images/mine_to_pool/4.png" alt="image4"></p>
+
+<p>Some pools allow you to monitor your hashrate by pasting your address into their
+website. You can also monitor your hashrate by pressing the <code class="highlighter-rouge">h</code> key.</p>
+
+<h1 id="tuning-the-miner">Tuning the miner</h1>
+
+<p>You might see nasty messages like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2017-07-09 12:04:02] : MEMORY ALLOC FAILED: mmap failed
+</code></pre></div></div>
+
+<p>This means that you can get around a 20% hashrate boost by enabling large pages.</p>
+
+<h2 id="large-pages-on-linux">Large pages on Linux</h2>
+
+<p>Firstly stop the miner (if it's running), run the following commands to enable
+large pages and then start the miner as root:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sysctl -w vm.nr_hugepages=128
+sudo ./xmr-stak-cpu
+</code></pre></div></div>
+
+<h2 id="large-pages-on-windows">Large pages on Windows</h2>
+
+<p>Taken from <code class="highlighter-rouge">config.txt</code>:</p>
+
+<blockquote>
+  <p>By default we will try to allocate large pages. This means you need to "Run As Administrator" on Windows
+You need to edit your system's group policies to enable locking large pages. Here are the steps from MSDN</p>
+  <ol>
+    <li>On the Start menu, click Run. In the Open box, type gpedit.msc.</li>
+    <li>On the Local Group Policy Editor console, expand Computer Configuration, and then expand Windows Settings.</li>
+    <li>Expand Security Settings, and then expand Local Policies.</li>
+    <li>Select the User Rights Assignment folder.</li>
+    <li>The policies will be displayed in the details pane.</li>
+    <li>In the pane, double-click Lock pages in memory.</li>
+    <li>In the Local Security Setting – Lock pages in memory dialog box, click Add User or Group.</li>
+    <li>In the Select Users, Service Accounts, or Groups dialog box, add an account that you will run the miner on</li>
+    <li>Reboot for change to take effect.</li>
+  </ol>
+</blockquote>
+
+                    </div>
+                </div>
+
+
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div><!-- .col -->
+      </div><!-- .sidebar-section -->
