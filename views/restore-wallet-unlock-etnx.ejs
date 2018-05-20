@@ -64,7 +64,10 @@
 <p>into the electronero-wallet-cli command prompt. One at a time. Write down your public address, secret viewkey, and secret spendkey, if you haven't already. This is the best way to make sure you always have access to your Electronero wallet in the future.</p>
 
 <p>First before you move ahead to restore your wallet address, try and use the command "sweep_unmixable".</p>
-<p>It allows you to 'get rid' of outputs in your wallet which have strange amounts like 0.000006839355, 
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sweep_unmixable
+</code></pre></div></div>
+<p>sweep_unmixable allows you to 'get rid' of outputs in your wallet which have strange amounts like 0.000006839355, 
 and are unmovable without combining them with another output. However, they are unmovable only if they are non-RCT or came before the 2nd hard-fork. 
 Chances are, new users will never have to use this command.
 
@@ -90,12 +93,13 @@ it once to join it with other outputs. The sweep_unmixable command is there to g
 <p>You should see something similiar to</p>
 <ul>
   <li>Wallet password:
-Sweeping 600.00 for a total fee of 100.00.  Is this okay?  (Y/Yes/N/No): yes
-Money successfully sent, transaction: <8f29ec900da7d6d1e4ea0e3ee956efdb43c8d449414e6480c51f947253a24d74></li>
+Sweeping 600.00 for a total fee of 100.00.  Is this okay?  (Y/Yes/N/No):</li>
 </ul>
 <p> You may be prompted to pay a Network Fee at this time, should you submit (Yes) your unmixable outputs would be gathered into one transaction.
 Submitted to the blockchain, and you will receive your mixable outputs less any actual Network Fee at the time, in the wallet you issued the "sweep_unmixable" order. 
-
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yes
+Money successfully sent, transaction: <8f29ec900da7d6d1e4ea0e3ee956efdb43c8d449414e6480c51f947253a24d74>
+</code></pre></div></div>
 <ul>
   <li>Close electronero-wallet-cli by typing</li>
 </ul>
