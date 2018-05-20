@@ -51,10 +51,14 @@
 </ul>
 
 <blockquote>
-  <p>seed</p>
+  <p>adress</p>
+  <p>viewkey</p>
+  <p>(followed by password)</p>
+  <p>spendkey</p>
+  <p>(followed by password)</p>
 </blockquote>
 
-<p>into the command prompt. Write down your 25 word seed, if you haven't already. This is the best way to make sure you don't loose access to your funds.</p>
+<p>into the electronero-wallet-cli command prompt. Write down your public address, secret viewkey, and secret spendkey, if you haven't already. This is the best way to make sure you don't loose access to your Electronero wallet in the future.</p>
 
 <ul>
   <li>Close electronero-wallet-cli by typing</li>
@@ -83,10 +87,13 @@ yourwalletname.bin.address.txt</p>
     <p>Delete yourwallet.bin</p>
   </li>
   <li>
-    <p>Load electronero-wallet-cli, type in the name of the wallet you just deleted</p>
+    <p>Load electronero-wallet-cli, this time with your new wallet name and the restore flags --restore-from-keys type in the name of the wallet you just deleted. </br>It should look like</p>
   </li>
+  <blockquote>
+  <p>./electronero-wallet-cli --restore-from-keys yourwalletname</p>
+  </blockquote>
   <li>
-    <p>Enter password. The wallet will now refresh and hopefully your locked funds will now become unlocked.</p>
+    <p>Enter address, private viewkey, private spendkey and a new password. The wallet will now refresh and hopefully your locked funds will now become unlocked as your outputs are scanned on the blockchain.</p>
   </li>
 </ul>
 
