@@ -50,38 +50,16 @@
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP=127.0.0.1
-PORT=26969
-METHOD="make_integrated_address"
-PARAMS="{\"payment_id\":\"1234567890123456789012345678900012345678901234567890123456789000\"}"
-curl \
-    -X POST http://$IP:$PORT/json_rpc \
-    -d '{"jsonrpc":"2.0","id":"0","method":"'$METHOD'","params":'"$PARAMS"'}' \
-    -H 'Content-Type: application/json'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adresss
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight">
-<blockquote>
-  adresss
-</blockquote>
-</pre>
-</div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight">
-<blockquote>
-  viewkey
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>viewkey
   (followed by password)
-</blockquote>
-</pre>
-</div></div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight">
-<blockquote>
-  spendkey
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spendkey
   (followed by password)
-</blockquote>
-</pre>
-</div></div>
+</code></pre></div></div>
 
 <p>into the electronero-wallet-cli command prompt. Write down your public address, secret viewkey, and secret spendkey, if you haven't already. This is the best way to make sure you don't loose access to your Electronero wallet in the future.</p>
 
