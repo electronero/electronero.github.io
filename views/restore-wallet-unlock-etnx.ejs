@@ -31,9 +31,9 @@
             <img src="" alt="">
             </div>
             <ul class="blog-meta">
-              <li><span>Posted</span><a href="/">7 MAY, 2018</a></li>
+              <li><span>Posted</span><a href="//electronero.org/user-guides/restore-wallet-unlock-etnx">7 MAY, 2018</a></li>
             </ul>
-            <h3 class="blog-title"><a href="/"><p>RESTORE ETNX</p> 
+            <h3 class="blog-title"><a href="//electronero.org/user-guides/restore-wallet-unlock-etnx"><p>RESTORE ETNX</p> 
             <p>Last revised: May 7th, 2017(forked from Monero)</a></p></h3>
             <p>  
 
@@ -83,48 +83,6 @@ Money successfully sent, transaction: <8f29ec900da7d6d1e4ea0e3ee956efdb43c8d4494
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
 </code></pre></div></div>
-
-<ul>
-  <li>Backup all of your wallet related files. These include:</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yourwalletname.bin
-yourwalletname.bin.keys
-yourwalletname.bin.address.txt
-</code></pre></div></div>
-
-<p>This can be done by copying the files to a new folder.</p>
-
-<p>Sometimes, when creating your wallet, you might have named it something without the .bin part. In that case, the wallet file will be called yourwalletname without the .bin at the end.</p>
-
-<ul>
-  <li>
-    <p>Delete yourwallet.bin</p>
-  </li>
-  <li>
-    <p>Load electronero-wallet-cli, this time with your new wallet name and the restore flags --restore-from-keys type in the name of the wallet you just deleted. </br>On Main Net it should look like</p>
-  </li>
-  
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronero-wallet-cli --restore-from-keys yourwalletname
-</code></pre></div></div>
-
-  <li>
-    <p>If you're on testnet . . .</br>It should look like</p>
-  </li>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronero-wallet-cli --testnet --restore-from-keys yourwalletname
-</code></pre></div></div>
-
-  <li>
-    <p>If you're on stagenet . . .</br>It should look like</p>
-  </li>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronero-wallet-cli --stagenet --restore-from-keys yourwalletname
-</code></pre></div></div>
-
-  <li>
-    <p>Enter address, private viewkey, private spendkey and a new password. The wallet will now refresh and hopefully your locked funds will now become unlocked as your outputs are scanned on the blockchain.</p>
-  </li>
-</ul>
-
 
                     </div>
                 </div>
