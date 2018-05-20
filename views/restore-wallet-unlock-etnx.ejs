@@ -69,17 +69,18 @@
 </code></pre></div></div>
 <p>sweep_unmixable allows you to 'get rid' of outputs in your wallet which have strange amounts like 0.000006839355, 
 and are unmovable without combining them with another output. However, they are unmovable only if they are non-RCT or came before the 2nd hard-fork. 
-Chances are, new users will never have to use this command.
+Chances are, new users will never have to use this command.</p>
 
 First, let's retain an explanation by JollyMort's and below is an excerpt of his outlook on unmixable outputs <a href="https://monero.stackexchange.com/a/3517">(source)</a> and why they're 'unmixable' in the first place.
 
-Your balance is made up of outputs of various amounts which you've received in the past. 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your balance is made up of outputs of various amounts which you've received in the past. 
 Every time you send, some of those get combined together until you reach some amount, which is then sent to the destination, and some change returned to your wallet.
 
 Think of outputs as bills: you received a bill of 40 and 100 in the past, and now you want to pay something worth 120. Your wallet 'burns' the 100+40 bills, creates new bills of 120 and 20, sends the 120 to your recipient and returns the 20 to yourself and you're left with the bill of 20, plus whatever else you already had in the wallet. 
 In Electronero, just like it's parent Monero, these 'bills' can now be created with any amount (pre-RCT, they had to be round numbers like 10, 1, 0.1, 0.01 ...).
+</code></pre></div></div>
 
-Thing is, like Monero, Electronero combines multiple outputs in a ring-signature, effectively hiding the one actually getting spent among other outputs found in the ring signature. 
+<p>Thing is, like Monero, Electronero combines multiple outputs in a ring-signature, effectively hiding the one actually getting spent among other outputs found in the ring signature. 
 Now, with RCT, you can pick any output for the ring signature because all the amounts are hidden. 
 Before, you had to choose other outputs of the exact same value. This required splitting any amount into multiple outputs 
 with common denominations, but there were always some of them which were unique, like 0.000006839355. There's simply 
