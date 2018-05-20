@@ -71,24 +71,6 @@
 and are unmovable without combining them with another output. However, they are unmovable only if they are non-RCT or came before the 2nd hard-fork. 
 Chances are, new users will never have to use this command.</p>
 
-First, let's retain an explanation by JollyMort's and below is an excerpt of his outlook on unmixable outputs <a href="https://monero.stackexchange.com/a/3517">(source)</a> and why they're 'unmixable' in the first place.
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your balance is made up of outputs of various amounts which you've received in the past. 
-Every time you send, some of those get combined together until you reach some amount, which is then sent to the destination, and some change returned to your wallet.
-
-Think of outputs as bills: you received a bill of 40 and 100 in the past, and now you want to pay something worth 120. Your wallet 'burns' the 100+40 bills, creates new bills of 120 and 20, sends the 120 to your recipient and returns the 20 to yourself and you're left with the bill of 20, plus whatever else you already had in the wallet. 
-In Electronero, just like it's parent Monero, these 'bills' can now be created with any amount (pre-RCT, they had to be round numbers like 10, 1, 0.1, 0.01 ...).
-</code></pre></div></div>
-
-<p>Thing is, like Monero, Electronero combines multiple outputs in a ring-signature, effectively hiding the one actually getting spent among other outputs found in the ring signature. 
-Now, with RCT, you can pick any output for the ring signature because all the amounts are hidden. 
-Before, you had to choose other outputs of the exact same value. This required splitting any amount into multiple outputs 
-with common denominations, but there were always some of them which were unique, like 0.000006839355. There's simply 
-no other like it, so there are no other outputs among which it could hide, and it would have to get spent alone. It's a special 
-case which doesn't benefit from applying ring signatures and thus the special treatment. Because of this, you'd only want to use 
-it once to join it with other outputs. The sweep_unmixable command is there to get rid of those special outputs once and for all 
-(if you actually have them in your wallet, that is).</p>
-
 <p>You should be prompted to enter your password, and after which time you may be prompted to pay a Network Fee at this time, should you submit (Yes) your unmixable outputs would be gathered into one transaction.
 Submitted to the blockchain, and you will receive your mixable outputs less any actual Network Fee at the time, in the wallet you issued the "sweep_unmixable" order. 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><p>Sweeping 600.00 for a total fee of 100.00.  Is this okay?  (Y/Yes/N/No): yes</p>
