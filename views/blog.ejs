@@ -42,10 +42,12 @@
 						<p>After the Hard Fork on block 307,000 when you restore your wallet and claim your outputs on the Electronero blockchain. Your ETN was on v1 and ETNX is on say v7, you may have to utilize the updated sweep_unmixable function. In short sweep_unmixable works by "mixing up your unmixable outputs". 
 						To understand how this all works. First, let's retain an explanation by JollyMort's and below is an excerpt of his outlook on unmixable outputs <a href="https://monero.stackexchange.com/a/3517">(source)</a> and why they're 'unmixable' in the first place.</p>
 
-						<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><p>Your balance is made up of outputs of various amounts which you've received in the past.
-						<p>Every time you send, some of those get combined together until you reach some amount, which is then sent to the destination, and some change returned to your wallet. Think of outputs as bills: you received a bill of 40 and 100 in the past, and now you want to pay something worth 120. Your wallet 'burns' the 100+40 bills, creates new bills of 120 and 20, sends the 120 to your recipient and returns the 20 to yourself and you're left with the bill of 20, plus whatever else you already had in the wallet.</p> 
-						<p>In Electronero, just like it's parent Monero, these 'bills' can now be created with any amount (pre-RCT, they had to be round numbers like 10, 1, 0.1, 0.01 ...).</p>
-						</code></pre></div></div>
+						<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your balance is made up of outputs of various amounts which you've received in the past. 
+Every time you send, some of those get combined together until you reach some amount, which is then sent to the destination, and some change returned to your wallet.
+
+Think of outputs as bills: you received a bill of 40 and 100 in the past, and now you want to pay something worth 120. Your wallet 'burns' the 100+40 bills, creates new bills of 120 and 20, sends the 120 to your recipient and returns the 20 to yourself and you're left with the bill of 20, plus whatever else you already had in the wallet. 
+In Electronero, just like it's parent Monero, these 'bills' can now be created with any amount (pre-RCT, they had to be round numbers like 10, 1, 0.1, 0.01 ...).
+</code></pre></div></div>
 
 						<p>Thing is, like Monero, Electronero combines multiple outputs in a ring-signature, effectively hiding the one actually getting spent among other outputs found in the ring signature. 
 						Now, with RCT, you can pick any output for the ring signature because all the amounts are hidden. 
