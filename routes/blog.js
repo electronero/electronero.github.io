@@ -27,6 +27,6 @@ router.get('/camel-emissions-may-20-2018', function(req, res, next) {
   res.render('may-20-2018', { title: 'Electronero Blog | May 20, 2018' });
 });
 router.get('/exchange-announcement-may-25-2018', function(req, res, next) {
-  res.render('may-25-2018', { 20title: 'Electronero Blog | May 25, 2018' });
+  res.render('may-25-2018', { title: 'Electronero Blog | May 25, 2018' });
 });
 module.exports = router;
