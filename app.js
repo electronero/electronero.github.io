@@ -31,6 +31,8 @@ app.use('/assets', serveIndex('assets')); // shows you the assets folder file li
 app.use('/assets', express.static('assets')); // serve the files inside assets ...when you get /assets
 app.use('/images', serveIndex('images')); // shows you the images folder file list ...when you get /images
 app.use('/images', express.static('images')); // serve the files inside images ...when you get /images
+app.use('/public', serveIndex('public')); // shows you the public folder file list ...when you get /public
+app.use('/public', express.static('public')); // serve the files inside public ...when you get /public
 
 app.use('/', index); 
 app.use('/blog', blog); // add blog route
