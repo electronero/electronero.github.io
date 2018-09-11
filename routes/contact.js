@@ -11,7 +11,7 @@ router.post('/contact/subscribe', function (req, res) {
         service: 'Gmail',
         auth: {
             user: 'electronero.official@gmail.com',
-            pass: 'bpowwhfuopfagzpq'
+            pass: 'nzuymqcwxtsdgjcp'
         }
         
     });
@@ -42,7 +42,7 @@ router.post('/contact/send', function (req, res) {
         service: 'Gmail',
         auth: {
             user: 'electronero.official@gmail.com',
-            pass: 'ejsliemtbuzsggux'
+            pass: 'goowoozdxidjhoym'
         }
         
     });
