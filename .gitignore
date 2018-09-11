@@ -1,4 +1,4 @@
 .DS_Store
 /routes/contact.js
-contact.*
+contact.js
 /node_modules
