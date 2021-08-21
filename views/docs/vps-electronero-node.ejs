@@ -1,0 +1,102 @@
+<%# views/docs/vps-electronero-node.ejs %>
+
+<% extend('../layouts/blog_layout') %>
+
+    <!-- Banner -->
+    <div id="header" class="page-banner d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-head">
+              <h2 class="page-heading">VPS ELECTRONERO NODE</h2>
+            </div>
+          </div>
+          <div class="page-head-image">
+          </div>
+        </div>
+      </div><!-- .container  -->
+    </div>
+    <!-- End Banner -->
+  </header>
+  <!-- End Header -->
+
+
+  <!-- Start Section -->
+  <div class="section section-pad-md section-bg-alt blog-section" id="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="blog-content">
+            <div class="blog-photo">
+            <img src="" alt="">
+            </div>
+            <ul class="blog-meta">
+              <li><span>Posted</span><a href="/">7 MAY, 2018</a></li>
+            </ul>
+            <h3 class="blog-title"><a href="/"><p>Run an Electronero Node on a VPS</p> 
+            <p>Last revised: May 7th, 2017(forked from Electronero)</a></p></h3>
+            <p>  
+
+<div class="info-block text-adapt">
+                    <div>
+                        <h1 id="electronerod">electronerod</h1>
+
+<p><code class="highlighter-rouge">electronerod</code> is the daemon software that ships with the Electronero tree. It is a console program, and manages the blockchain. While a bitcoin wallet manages both an account and the blockchain, Electronero separates these: <code class="highlighter-rouge">electronerod</code> handles the blockchain, and <code class="highlighter-rouge">electronero-wallet-cli</code> handles the account.</p>
+
+<p>This guide assumes you have already set up your VPS account and are using SSH to tunnel into the server console.</p>
+
+<h2 id="linux-64-bit-ubuntu-1604-lts">Linux, 64-bit (Ubuntu 16.04 LTS)</h2>
+
+<h3 id="make-sure-that-port-26777-is-open">Make sure that port 26777 is open</h3>
+<p><code class="highlighter-rouge">electronerod</code> uses this port to communicate with other nodes on the Electronero network.</p>
+
+<p>Example if using <code class="highlighter-rouge">ufw</code>: <code class="highlighter-rouge">sudo ufw allow 26777</code>
+Example if using <code class="highlighter-rouge">iptables</code>: <code class="highlighter-rouge">sudo iptables -A INPUT -p tcp --dport 26777 -j ACCEPT</code></p>
+
+<h3 id="download-the-current-electronero-core-binaries">Download the current Electronero Core binaries</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://downloads.electronero.org/linux64
+</code></pre></div></div>
+
+<h3 id="make-a-directory-and-extract-the-files">Make a directory and extract the files.</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir electronero
+tar -xjvf linux64 -C electronero
+</code></pre></div></div>
+
+<h3 id="launch-the-daemon">Launch the daemon</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd electronero
+./electronerod
+</code></pre></div></div>
+
+<h3 id="options">Options:</h3>
+
+<p>Show list of all options and settings:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronerod --help
+</code></pre></div></div>
+
+<p>Launch the daemon as a background process:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronerod --detach
+</code></pre></div></div>
+
+<p>Monitor the output of <code class="highlighter-rouge">electronerod</code> if running as daemon:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tail -f ~/.bitelectronero/bitelectronero.log
+</code></pre></div></div>
+
+<p>Keep the VPS secure with autoupdate:</p>
+
+<p>https://help.ubuntu.com/community/AutomaticSecurityUpdates</p>
+
+
+                    </div>
+                </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div><!-- .col -->
+      </div><!-- .sidebar-section -->

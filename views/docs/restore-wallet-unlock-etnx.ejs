@@ -1,0 +1,96 @@
+<%# views/docs/restore-wallet-unlock-etnx.ejs %>
+
+<% extend('../layouts/blog_layout') %>
+
+    <!-- Banner -->
+    <div id="header" class="page-banner d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-head">
+              <h2 class="page-heading">FIX UNMIXABLE ETNX, UNLOCK UNMIXABLE ETNX</h2>
+            </div>
+          </div>
+          <div class="page-head-image">
+          </div>
+        </div>
+      </div><!-- .container  -->
+    </div>
+    <!-- End Banner -->
+  </header>
+  <!-- End Header -->
+
+
+  <!-- Start Section -->
+  <div class="section section-pad-md section-bg-alt blog-section" id="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="blog-content">
+            <div class="blog-photo">
+            <img src="" alt="">
+            </div>
+            <ul class="blog-meta">
+              <li><span>Posted</span><a href="//electronero.org/user-guides/restore-wallet-unlock-etnx">7 MAY, 2018</a></li>
+            </ul>
+            <h3 class="blog-title"><a href="//electronero.org/user-guides/restore-wallet-unlock-etnx"><p>RESTORE ETNX</p> 
+            <p>Last revised: May 7th, 2017(forked from Monero)</a></p></h3>
+            <p>  
+
+<div class="info-block text-adapt">
+                    <div>
+                        <p>Sometimes, your funds will become stuck - you will have some locked funds that never become unlocked. This is how you fix it.</p>
+
+<ul>
+  <li>
+    <p>Load your wallet in electronero-wallet-cli.</p>
+  </li>
+  <li>
+    <p>Type</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>address
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>viewkey
+(followed by password)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spendkey
+(followed by password)
+</code></pre></div></div>
+
+<p>into the electronero-wallet-cli command prompt. One at a time. Write down your public address, secret viewkey, and secret spendkey, if you haven't already. This is the best way to make sure you always have access to your Electronero wallet in the future.</p>
+
+<p>First before you move ahead to restore your wallet address, try and use the command "sweep_unmixable".</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sweep_unmixable
+</code></pre></div></div>
+<p>sweep_unmixable allows you to 'get rid' of outputs in your wallet which have strange amounts like 0.000006839355, 
+and are unmovable without combining them with another output. However, they are unmovable only if they are non-RCT or came before the 2nd hard-fork. 
+Chances are, new users will never have to use this command.</p>
+
+<p>You should be prompted to enter your password, and after which time you may be prompted to pay a Network Fee at this time, should you submit (Yes) your unmixable outputs would be gathered into one transaction.
+Submitted to the blockchain, and you will receive your mixable outputs less any actual Network Fee at the time, in the wallet you issued the "sweep_unmixable" order. 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><p>Sweeping 600.00 for a total fee of 100.00.  Is this okay?  (Y/Yes/N/No): yes</p>
+Money successfully sent, transaction: <8f29ec900da7d6d1e4ea0e3ee956efdb43c8d449414e6480c51f947253a24d74>
+</code></pre></div></div>
+<ul>
+  <li>Now your outputs should be mixable and unlocked, you can close the wallet. Do not proceed unless you already saved your wallet address, private spendkey and private viewkey.</li> 
+  <li>Close electronero-wallet-cli by typing</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
+</code></pre></div></div>
+
+                    </div>
+                </div>
+
+
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div><!-- .col -->
+      </div><!-- .sidebar-section -->

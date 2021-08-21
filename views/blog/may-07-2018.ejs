@@ -1,0 +1,72 @@
+<%# views/blog/may-07-2018.ejs %>
+
+<% extend('../layouts/blog_layout') %>
+		<!-- Banner -->
+		<div id="header" class="page-banner d-flex align-items-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="page-head">
+						</br>
+						</br>
+							<h2 class="page-heading">ELECTRONERO NEWS</h2>
+						</div>
+					</div>
+					<div class="page-head-image">
+					</div>
+				</div>
+			</div><!-- .container  -->
+		</div>
+		<!-- End Banner -->
+	</header>
+	<!-- End Header -->
+
+
+	<!-- Start Section -->
+	<div class="section section-pad-md section-bg-alt blog-section" id="news">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="blog-content">
+						<div class="blog-photo">
+						<img src="" alt="">
+						</div>
+						<ul class="blog-meta">
+							<li><span>Posted</span><a href="//electronero.org/blog/sweep_unmixable-may-07-2018">3 MAY, 2018</a></li>
+						</ul>
+						<h3 class="blog-title"><a href="//electronero.org/blog/sweep_unmixable-may-07-2018">Electronero updated sweep_unmixable function, sweep_unmixable is for mixing of TX v1 & v2 on ETNX blockchain post hard fork</a></h3>
+						<p>Recently we celebrated  some achievements in the Electronero blockchain development. During testnet we found that v1 transactions produced unmixable outputs and this was causing a riff between some of the test ETNX funds from v1 before the test fork to v7 and subsequently v8. We were able to repair the sweep_unmixable function in order to unlock the unmixable ETNX  and allow for a ring size 1 transaction. What this means is that while preserving ring signatures and Bulletproof RCT we were able to "sweep" unmixable ETNX and this is the common practice we expect many wallets containing v1 outputs may have to adapt as we roll out main net on block 307,000.</p>
+						<p>After the Hard Fork on block 307,000 when you restore your wallet and claim your outputs on the Electronero blockchain. Your ETN was on v1 and ETNX is on say v7 or v8, you may have to utilize the updated sweep_unmixable function. In short sweep_unmixable works by "mixing up your unmixable outputs". To understand how this all works. First, let's retain an explanation by JollyMort's and below is an excerpt of his outlook on unmixable outputs <a href="https://monero.stackexchange.com/a/3517">(source)</a> and why they're 'unmixable' in the first place.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your balance is made up of outputs of various amounts which you've received in the past. 
+Every time you send, some of those get combined together until you reach some amount, which is then sent to the destination, and some change returned to your wallet.
+
+Think of outputs as bills: you received a bill of 40 and 100 in the past, and now you want to pay something worth 120. Your wallet 'burns' the 100+40 bills, creates new bills of 120 and 20, sends the 120 to your recipient and returns the 20 to yourself and you're left with the bill of 20, plus whatever else you already had in the wallet. 
+In Electronero, just like it's parent Monero, these 'bills' can now be created with any amount (pre-RCT, they had to be round numbers like 10, 1, 0.1, 0.01 ...).
+</code></pre></div></div>
+
+<p>Thing is, like Monero, Electronero combines multiple outputs in a ring-signature, effectively hiding the one actually getting spent among other outputs found in the ring signature. 
+Now, with RCT, you can pick any output for the ring signature because all the amounts are hidden. 
+Before, you had to choose other outputs of the exact same value. This required splitting any amount into multiple outputs 
+with common denominations, but there were always some of them which were unique, like 0.000006839355. There's simply 
+no other like it, so there are no other outputs among which it could hide, and it would have to get spent alone. It's a special 
+case which doesn't benefit from applying ring signatures and thus the special treatment. Because of this, you'd only want to use 
+it once to join it with other outputs. The sweep_unmixable command is there to get rid of those special outputs once and for all 
+(if you actually have them in your wallet, that is).</p>
+
+										</div>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+
+				</div><!-- .col -->
+
+					</div><!-- .sidebar-section -->
+
+				</div><!-- .col -->
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div>
+	<!-- Start Section -->

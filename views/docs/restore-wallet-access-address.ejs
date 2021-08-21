@@ -1,0 +1,126 @@
+<%# views/docs/restore-wallet-access-address.ejs %>
+
+<% extend('../layouts/blog_layout') %>
+
+    <!-- Banner -->
+    <div id="header" class="page-banner d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-head">
+              <h2 class="page-heading">RESTORE ETNX ADDRESS, UNLOCK WALLET AFTER A FORK</h2>
+            </div>
+          </div>
+          <div class="page-head-image">
+          </div>
+        </div>
+      </div><!-- .container  -->
+    </div>
+    <!-- End Banner -->
+  </header>
+  <!-- End Header -->
+
+
+  <!-- Start Section -->
+  <div class="section section-pad-md section-bg-alt blog-section" id="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="blog-content">
+            <div class="blog-photo">
+            <img src="" alt="">
+            </div>
+            <ul class="blog-meta">
+              <li><span>Posted</span><a href="/">7 MAY, 2018</a></li>
+            </ul>
+            <h3 class="blog-title"><a href="/"><p>RESTORE ETNX</p> 
+            <p>Last revised: May 7th, 2017(forked from Monero)</a></p></h3>
+            <p>  
+
+<div class="info-block text-adapt">
+                    <div>
+                        <p>Sometimes, you are in need of regenerating your wallet. In the case of after a fork (software update) or even if you misplaced your wallet. This is how you restore it.</p>
+
+<ul>
+  <li>
+    <p>Load your wallet in electronero-wallet-cli.</p>
+  </li>
+  <li>
+    <p>Type</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>address
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>viewkey
+(followed by password)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spendkey
+(followed by password)
+</code></pre></div></div>
+
+<p>into the electronero-wallet-cli command prompt. One at a time. Write down your public address, secret viewkey, and secret spendkey, if you haven't already. This is the best way to make sure you always have access to your Electronero wallet in the future.</p>
+
+<ul>
+  <li>Backup all of your wallet related files. These include:</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yourwalletname.bin
+yourwalletname.bin.keys
+yourwalletname.bin.address.txt
+</code></pre></div></div>
+
+<p>This can be done by copying the files to a new folder.</p>
+
+<p>Sometimes, when creating your wallet, you might have named it something without the .bin part. In that case, the wallet file will be called yourwalletname without the .bin at the end.</p>
+
+<ul>
+  <li>
+    <p>Delete yourwallet.bin</p>
+  </li>
+  <li>
+    <p>Load electronero-wallet-cli, this time with your new wallet name and the restore flags --restore-from-keys type in the name of the wallet you just deleted. </br>On Main Net it should look like</p>
+  </li>
+  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronero-wallet-cli --restore-from-keys yourwalletname
+</code></pre></div></div>
+
+  <li>
+    <p>If you're on testnet . . .</br>It should look like</p>
+  </li>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronero-wallet-cli --testnet --restore-from-keys yourwalletname
+</code></pre></div></div>
+
+  <li>
+    <p>If you're on stagenet . . .</br>It should look like</p>
+  </li>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./electronero-wallet-cli --stagenet --restore-from-keys yourwalletname
+</code></pre></div></div>
+
+  <li>
+    <p>Enter address, private viewkey, private spendkey and a new password. The wallet will now refresh and hopefully your locked funds will now become unlocked as your outputs are scanned on the blockchain.</p>
+  </li>
+</ul>
+
+
+<ul>
+  <li>You may now safely access your Electronero wallet using web services or the electronero-wallet-cli or electronero-wallet-rpc</li>
+  <li>Close electronero-wallet-cli by typing</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
+</code></pre></div></div>
+
+
+                    </div>
+                </div>
+
+
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div><!-- .col -->
+      </div><!-- .sidebar-section -->

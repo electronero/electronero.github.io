@@ -1,0 +1,99 @@
+<%# views/docs/offline-backup.ejs %>
+
+<% extend('../layouts/blog_layout') %>
+    <!-- Banner -->
+    <div id="header" class="page-banner d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-head">
+              <h2 class="page-heading">OFFLINE BACKUP</h2>
+            </div>
+          </div>
+          <div class="page-head-image">
+          </div>
+        </div>
+      </div><!-- .container  -->
+    </div>
+    <!-- End Banner -->
+  </header>
+  <!-- End Header -->
+
+
+  <!-- Start Section -->
+  <div class="section section-pad-md section-bg-alt blog-section" id="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="blog-content">
+            <div class="blog-photo">
+            <img src="" alt="">
+            </div>
+            <ul class="blog-meta">
+              <li><span>Posted</span><a href="/">7 MAY, 2018</a></li>
+            </ul>
+            <h3 class="blog-title"><a href="/"><p>Offline Backup</p> 
+            <p>Last revised: May 7th, 2017(forked from Monero)</a></p></h3>
+            <p>  
+
+<div class="info-block text-adapt">
+                    <div>
+                        <h2 id="operating-systems--various-versions-of-linux-and-windows-7-8">Operating Systems:  Various versions of Linux and Windows 7, 8</h2>
+
+<h3 id="wallet-software--simplewallet">Wallet Software:  Simplewallet</h3>
+
+<h4 id="resource-for-creating-bootable-disks--linux-------windows">Resource for Creating Bootable Disks:  <a href="http://www.pendrivelinux.com/">Linux</a>,       <a href="https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool">Windows</a></h4>
+
+<h4 id="resource-for-monero-binaries--monero-binaries">Resource for Electronero Binaries:  <a href="https://electronero.org/downloads/">Electronero Binaries</a></h4>
+
+<ul>
+  <li>
+    <p>Take any computer you have lying around, even your normal workstation. You may find it easier to use an older computer that has no wifi or bluetooth if you're particularly paranoid</p>
+  </li>
+  <li>
+    <p>Create a Linux or Windows bootable disk, and make sure you have the Electronero binaries on the same disk or on a second disk (for Linux make sure you have also downloaded copies of the dependencies you will need, libboost1.55 and miniupnpc for instance)</p>
+  </li>
+  <li>
+    <p>Disconnect the network and/or Internet cables from your computer, physically remove the wifi card or switch the wifi/bluetooth off on a laptop if possible</p>
+  </li>
+  <li>
+    <p>Boot into your bootable OS, install the dependencies if necessary</p>
+  </li>
+  <li>
+    <p>Copy the Electronero binaries to a RAM disk (/dev/shm in Linux, Windows bootable ISOs normally have a Z: drive or something)</p>
+  </li>
+  <li>
+    <p>Don't run the Electronero daemon. Instead, using the command line, use monero-wallet-cli to create a new Electronero account</p>
+  </li>
+  <li>
+    <p>When prompted for a name, give it any name, it doesn't really matter</p>
+  </li>
+  <li>
+    <p>When prompted for a password, type in like 50 - 100 random characters. Don't worry that you don't know the password, just make it LONG</p>
+  </li>
+  <li>
+    <p><strong>CRITICAL STEP</strong>: Write down (on paper) your 25 word mnemonic seed<br>
+<strong>WARNING</strong>:  If you forget to write down this information your funds may be lost forever</p>
+  </li>
+  <li>
+    <p>Write down (on your phone, on paper, on another computer, wherever you want) your address and view key</p>
+  </li>
+  <li>
+    <p>Switch off the computer, remove the battery if there is one, and leave it physically off for a few hours</p>
+  </li>
+</ul>
+
+<p>The account you've created was created in RAM, and the digital files are now inaccessible. If some adversary manages to somehow obtain the data, they will lack the long password to open it. If you need to receive payments, you have your public address, and you have the view key if needed. If you need access to it, you have your 25 word mnemonic seed, and you can now write out several copies of it, including an offsite copy (e.g. a bank deposit box).</p>
+
+<p>Credit: Forked From Monero</p>
+
+<p>Related:  <a href="https://address.elecronero.org/">Offline Account Generator</a></p>
+
+                    </div>
+                </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div><!-- .col -->
+      </div><!-- .sidebar-section -->

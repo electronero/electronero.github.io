@@ -3,11 +3,11 @@
 <html lang="zxx" class="js">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Softnio">
+    <meta name="author" content="Electronero">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Electronero">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="shortcut icon" href="/public/favicon.ico">
     <!-- Site Title  -->
     <title>Electronero</title>
     <!-- Vendor Bundle CSS -->
@@ -17,12 +17,17 @@
     <link rel="stylesheet" href="/assets/css/theme.css?ver=113">
     <!-- Custom styles from etx dev team -->
     <link rel="stylesheet" href="/assets/css/custom.css">
-    <meta name="cf-2fa-verify" content="a448ce915b2761c">
-    <meta name="cf-2fa-verify" content="df5ae9fb00af40f">
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css?ver=114">
+    <link rel="icon" type="image/png" href="/public/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/public/favicon-16x16.png" sizes="16x16" />
 </head>
 
 <body class="theme-light" data-spy="scroll" data-target="#mainnav" data-offset="80">
-
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Header -->
     <header class="site-header is-sticky">
 
@@ -48,13 +53,18 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link menu-link" href="#intro">About<span class="sr-only">(current)</span></a></li>
                         <li class="nav-item"><a class="nav-link menu-link" href="#tokenSale">Launch</a></li>
+			<li class="nav-item"><a class="nav-link menu-link" href="/hardfork">Hard-Fork</a></li>
+                        <li class="nav-item"><a class="nav-link menu-link" href="https://medium.com/@electronero">Blog</a></li>
                         <li class="nav-item"><a class="nav-link menu-link" href="#roadmap">Roadmap</a></li>
+                        <li class="nav-item"><a class="nav-link menu-link" href="#team">Community</a></li>
                         <li class="nav-item"><a class="nav-link menu-link" href="#faq">FAQ</a></li>
+			<li class="nav-item"><a class="nav-link menu-link" href="//electronero.org/docs">DOCS</a></li>
                         <li class="nav-item"><a class="nav-link menu-link" href="#contact">Contact</a></li>
                     </ul>
                     <ul class="navbar-nav navbar-btns">
-                        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="#">Whitepaper</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="#apps">Download Wallet</a></li>
+		    	<li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" target="_blank" href="https://electronero.org/public/doc/Bulletproof%20RingCT.pdf">BulletProof RCT</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="https://electronero.org/public/doc/electronero-whitepaper.pdf">Whitepaper</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" target="_blank" href="https://github.com/electronero/electronero/releases">Wallets</a></li>
                     </ul>
                 </div>
             </nav>
@@ -68,27 +78,42 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-12">
                             <div class="header-txt tab-center mobile-center">
-                                <h1>No more bullshit.</h1>
-                                <p class="lead color-secondary">Electroneum fork. Public release 06/01/2018</p>
+			    </br>
+                                <h1>Hard Fork Initialized</h1>
+				<p><i>A decentralized hard fork of ETN</i></p>
+				<p>GPU/CPU mining algo == Cryptonight Fast!</p>
+				<p><a href="https://medium.com/@electronero">Read Latest ETNX News on <img width="30px" height="30px" src="https://image.ibb.co/h7n3dd/1_a_Gne_Pq_NZ97de_TWaa4m_BU2_A.png" /></a></i></p>
+				<p>As seen on <a href="https://themerkle.com/electroneum-hard-fork-electronero-combines-features-from-different-cryptonote-currencies/"><img width="30px" height="30px" src="/images/the-merkle.png" /></a> & <a href="http://www.bitcoininsider.org/article/24743/electroneum-hard-fork-electronero-combines-features-different-cryptonote-currencies"><img width="30px" height="30px" src="/images/bitcoin-insider.png" /></a>
+				</p>
+                                <p class="lead color-secondary">Electroneum Hard Fork. Public Main Net released 05/30/2018</p>
                                 <ul class="btns">
-                                    <li><a href="https://github.com/electronero/electronero" class="btn">Download</a></li>
-                                    <li><a href="https://t.me/electronero" class="btn btn-alt">Join us on Telegram</a></li>
+                                    <li><a href="https://twitter.com/_electronero" class="btn">Twitter</a></li>
+                                    <li><a href="https://t.me/electronero" class="btn btn-alt">Telegram</a></li>
                                 </ul>
                                 <ul class="social">
-                                    <li><a target="_blank" href="#"><em class="fa fa-facebook"></em></a></li>
+                                    <!--
+                                    <li><a target="_blank" href="https://t.me/electronero"><em class="fa fa-telegram"></em></a></li>
                                     <li><a target="_blank" href="https://twitter.com/_electronero"><em class="fa fa-twitter"></em></a></li>
                                     <li><a target="_blank" href="https://instagram.com/electronero"><em class="fa fa-instagram"></em></a></li>
                                     <li><a target="_blank" href="https://github.com/electronero/"><em class="fa fa-github"></em></a></li>
-                                    <li><a target="_blank" href="#"><em class="fa fa-reddit"></em></a></li>
-                                    <li><a target="_blank" href="https://discord.gg/4ceEk"><em class="fa fa-discord"></em></a></li>
-                                    <li><a target="_blank" href="https://t.me/electronero"><em class="fa fa-telegram"></em></a></li>
+                                    <li><a target="_blank" href="https://www.reddit.com/user/electronero_official"><em class="fa fa-reddit"></em></a></li>
+                                    <li><a target="_blank" href="https://discord.gg/Msy85Uz"><em class="fa fa-discord"></em></a></li>
+
+                                    -->
+                                         				<li><a target="_blank" href="https://t.me/electronero"><em class="fab fa-telegram"></em></a></li>
+									<li><a target="_blank" href="https://twitter.com/_electronero"><em class="fab fa-twitter"></em></a></li>
+									<li><a target="_blank" href="https://instagram.com/electronero"><em class="fab fa-instagram"></em></a></li>
+									<li><a target="_blank" href="https://github.com/electronero/"><em class="fab fa-github"></em></a></li>
+									<li><a target="_blank" href="https://www.reddit.com/r/Electronero_official/"><em class="fab fa-reddit"></em></a></li>
+									<li><a target="_blank" href="https://discord.gg/Msy85Uz"><em class="fab fa-discord"></em></a></li>
+
                                 </ul>
                             </div>
                         </div><!-- .col  -->
                         <div class="col-lg-5 offset-lg-1 col-md-12">
                             <div class="countdown-box countdown-header text-center">
                                 <span class="extra-line"></span>
-                                <div class="token-countdown d-flex align-content-stretch" data-date="2018/06/01"></div>
+                                <div class="token-countdown d-flex align-content-stretch" data-date="2018/11/11"></div>
                             </div>
                         </div><!-- .col  -->
                     </div><!-- .row  -->
@@ -100,7 +125,7 @@
     <!-- End Header -->
 
     <div class="container">
-       
+
        <%- content %>
     </div><!-- /.container -->
 
@@ -118,11 +143,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <ul class="contact-info">
-                        <li><em class="fa fa-twitter"></em><span>@_electenero</span></li>
-                        <li><em class="fa fa-envelope"></em><span>info@electronero.com</span></li>
-                        <li><em class="fa fa-paper-plane"></em><span>Join us on Telegram</span></li>
+                <div class="col-lg-8 offset-lg-2" align="center">
+                    <ul class="contact-info" align="center">
+                        <li><em class="fab fa-twitter"></em><a href="https://twitter.com/_electronero"><span>Tweet @_electenero</span></a></li>
+                        <li><em class="fa fa-envelope"></em><a href="mailto:electronero.official@gmail.com"><span>Send ETNX an Email</span></a></li>
+                        <li><em class="fab fa-telegram"></em><a href="https://t.me/electronero"><span>Join ETNX on Telegram</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -135,7 +160,7 @@
                             <label for="name" class="input-title">Your Name</label>
                         </div>
                         <div class="input-field">
-                            <input name="email" type="text" class="input-line form-control required email">
+                            <input name="email" type="email" class="input-line form-control required email">
                             <label for="email" class="input-title">Your Email</label>
                         </div>
                         <div class="input-field">
@@ -161,7 +186,7 @@
                 <div class="col-md-6 offset-md-3">
                     <h4 class="section-title-md">Don't miss out, Stay updated</h4>
                     <form id="subscribe-form" action="contact/subscribe" method="post" class="subscription-form inline-form">
-                        <input type="text" name="email" class="input-round form-control required email" placeholder="Enter your email address" >
+                        <input type="email" name="email" class="input-round form-control required email" placeholder="Enter your email address" >
                         <input type="text" class="d-none" name="form-anti-honeypot" value="">
                         <button type="submit" onclick="setTimeout(subSubmit, 1000)" class="slideOut btn btn-plane">Subscribe</button>
                         <div class="subscribe-results"></div>
@@ -179,17 +204,29 @@
             <div class="row text-center">
                 <div class="col-md-12">
                     <ul class="social">
+                        <!--
                         <li><a target="_blank" href="#"><em class="fa fa-facebook"></em></a></li>
                         <li><a target="_blank" href="https://twitter.com/_electronero"><em class="fa fa-twitter"></em></a></li>
                         <li><a target="_blank" href="https://instagram.com/electronero"><em class="fa fa-instagram"></em></a></li>
                         <li><a target="_blank" href="http://github.com/electronero/"><em class="fa fa-github"></em></a></li>
                         <li><a target="_blank" href="#"><em class="fa fa-reddit"></em></a></li>
-                        <li><a target="_blank" href="https://discord.gg/4ceEk"><em class="fa fa-discord"></em></a></li>
+                        <li><a target="_blank" href="https://discord.gg/Msy85Uz"><em class="fa fa-discord"></em></a></li>
                         <li><a target="_blank" href="https://t.me/electronero"><em class="fa fa-telegram"></em></a></li>
+                        -->
+                        <li><a target="_blank" href="https://www.facebook.com/etxofficial"><em class="fab fa-facebook"></em></a></li>
+						<li><a target="_blank" href="https://twitter.com/_electronero"><em class="fab fa-twitter"></em></a></li>
+						<li><a target="_blank" href="https://instagram.com/electronero"><em class="fab fa-instagram"></em></a></li>
+						<li><a target="_blank" href="http://github.com/electronero/"><em class="fab fa-github"></em></a></li>
+						<li><a target="_blank" href="https://www.reddit.com/user/electronero_official/"><em class="fab fa-reddit"></em></a></li>
+						<li><a target="_blank" href="https://discord.gg/Msy85Uz"><em class="fab fa-discord"></em></a></li>
+						<li><a target="_blank" href="https://t.me/electronero"><em class="fab fa-telegram"></em></a></li>
+
                     </ul>
                     <span class="copyright-text">
-                        Copyright &copy; 2018, Electronero.
-                        <span>All trademarks and copyrights belong to their respective owners.</span>
+                        <p><a href="/legal#copyright">Copyright</a> &copy; 2018-2019, Electronero Project Core development.</p>
+			<p>As seen on <a href="https://themerkle.com/electroneum-hard-fork-electronero-combines-features-from-different-cryptonote-currencies/"><img width="30px" height="30px" src="/images/the-merkle.png" /></a> & <a href="http://www.bitcoininsider.org/article/24743/electroneum-hard-fork-electronero-combines-features-different-cryptonote-currencies"><img width="30px" height="30px" src="/images/bitcoin-insider.png" /></a></p>
+                        <p><span>All trademarks and copyrights belong to their respective owners. </span></p>
+			<p><a href="/legal">Terms & Conditions</a> || <a href="/legal#privacy"> Privacy Policy</a></p>
                     </span>
                 </div>
             </div>
@@ -208,82 +245,9 @@
     <!-- JavaScript (include all script here) -->
     <script src="/assets/js/jquery.bundle.js?ver=113"></script>
     <script src="/assets/js/script.js?ver=113"></script>
-    
-    <script type="text/javascript">
 
-    let formChecker = false;
-    let subChecker = false;
-    var contactForm = $('#contact-form'), subscribeForm = $('#subscribe-form');
-    function clearForm()
-    {
-    document.getElementById("contact-form").reset();
-    document.getElementById("subscribe-form").reset();
-    }
-    function requiredSub()
-    {
-      var subEmail = document.forms["subscribe-form"]["email"].value;
-    if (subEmail === "")
-    {
-    subChecker = false;
-    }
-    else 
-    {
-    subChecker = true;
-    }
-    }
-    function requiredForm()
-    {
-      var name = document.forms["contact-form"]["name"].value;
-      var email = document.forms["contact-form"]["email"].value;
-      var message = document.forms["contact-form"]["message"].value;
-    if (email === "")
-    {
-    formChecker = false;
-    }
-    else 
-    {
-    formChecker = true;
-    }
-    }
-    function formSubmit() {
-    requiredForm()
-    if (formChecker == true){
-                let qf_results = contactForm.find('.form-results');
-                qf_results.slideUp(400);
-                let message = 'Message sent! Thanks for contacting us.';
-                var type = 'alert-success';
-                qf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-                setTimeout(clearForm, 3000);
-    };
-    if (formChecker == false){
-                let qf_results = contactForm.find('.form-results');
-                qf_results.slideUp(400);
-                let message = 'Message could not be sent! Please try again momentarily.';
-                var type = 'alert-danger';
-                qf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-    };
-};
-    function subSubmit() {
-    requiredSub()
-    if (subChecker == true){
-                var sf_results = subscribeForm.find('.subscribe-results');
-                sf_results.slideUp(400);
-                let message = 'Message sent! Thanks for contacting us.';
-                var type = 'alert-success';
-                sf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-                setTimeout(clearForm, 3000);
-    };
-    if (subChecker == false){
-                var sf_results = subscribeForm.find('.subscribe-results');
-                sf_results.slideUp(400);
-                let message = 'Message could not be sent! Please try again momentarily.';
-                var type = 'alert-danger';
-                sf_results.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + type ).html(message).slideDown(400);
-    };
-};
-
-
-    </script>
+    <!-- form validation animations -->
+    <script src="/assets/js/formchecker.js"></script>
 
 </body>
 </html>
